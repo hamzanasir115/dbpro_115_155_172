@@ -1,4 +1,71 @@
-﻿@using MediaEncyclopediaInUrdu.Models
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>بیماریوں کا انسائکوپیڈیا</title>
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="js/modernizr.js"></script>
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body style="background-color:#ffffff;color: #00B4CC;">
+    <!--------------- Login ----------------->
+    <br /><br /><br /><br /><br /><br />
+    <div class="col-md-3"></div>
+    <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
+        <font face="Blackadder ITC"><h1 align="center">داخلہ</h1></font>
+        <br />
+
+        <form style="text-align:right;">
+            <div class="form-group">
+                <div class="col-md-4" style="float:right;">
+                    <label>حیثیت منتخب کریں</label>
+                </div>
+                <label><input type="radio" name="gender">ڈاکٹر</label>
+                <label><input type="radio" name="gender">عام صارف</label>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4" style="float:right;">
+                    <label for="name">:استعمال کنندہ کی آئ ڈی</label>
+                </div>
+                <select name=mytextarea>
+                    <option name=one value=one> #GU3562 </option>
+                    <option name=two value=two> #DOC123 </option>
+                    <option name=three value=three> #GU897 </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4" style="float:right;">
+                    <label for="pwd">:پاس ورڈ</label>
+                </div>
+                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="پاس ورڈ کا اندراج کريں">
+            </div>
+            <div class="col-md-4">
+                <button style="background-color:#00B4CC ; text-color: #ffff;"><a href="Myprofile.html" style="color:#ffff;"> داخلہ </a></button>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-5">
+                <button style="background-color:#00B4CC ; text-color: #ffff;"><a href="signup.html" style="color:#ffff;">رجسٹر</a></button> <br><br>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
+@*@using MediaEncyclopediaInUrdu.Models
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -47,7 +114,7 @@
                 @* Enable this once you have account confirmation enabled for password reset functionality
                     <p>
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
+                    </p>
             }
         </section>
     </div>
@@ -60,4 +127,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
