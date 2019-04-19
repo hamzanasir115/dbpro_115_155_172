@@ -1,0 +1,214 @@
+﻿@{
+    
+    Layout = "~/Views/Shared/DiseaseLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color:#ffffff">
+
+    <!-- ====================================================
+    header section -->
+    <section class="abc" id="menu">
+        <header class="top-header">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid nav-bar">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                </button>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a class="menu" href="Signout">باہر جائیں</a></li>
+                                    <li><a class="menu" href="AddCategory.html">ترتیب زمزمہ</a></li>
+                                    <li><a class="menu active" href="AddDisease.html">ترتیب بيمارياں</a></li>
+                                    <li><a class="menu" href="Book.html">کتاب حاصل</a></li>
+                                    <li><a class="menu" href="Treatment.html">علاج</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="menu" href="Myprofile.html">میری پروفائل</a></li>
+                                    <li><a class="menu" href="index.html">صفحۂ اول</a></li>
+                                    <li> <a href="index.html"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
+                                </ul>
+                            </div><!-- /navbar-collapse -->
+                        </div><!-- / .container-fluid -->
+                    </nav>
+                </div>
+            </div>
+        </header> <!-- end of header area -->
+        <div class="header-backup">
+        </div>
+        <!-- middle Portion -->
+        <br><div class="container">
+            <div class="col-md-6 col-sm-6">
+                <embed style="height:300px; width:500px;" src="~/img/ptania2.swf">
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <table border="1">
+                    <tr>
+                        <th style="text-align:center; color: #ffff; background-color: #00B4CC ;"><h2>فہرست</h2></th></th>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; background-color:#ffff;"><a href="#adddisease">بيماری کا اندراج</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; background-color:#ffff;"><a href="#viewdisease">بيمارياں ملاحظہ کريں</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; background-color:#ffff;"><a href="#deletedisease">بيماری کا اخراج</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center; background-color:#ffff;"><a href="#updatedisease">بيماری کی درستگی</a></td>
+                    </tr>
+                </table>
+            </div>
+    </section>
+    <!------------------- Add disease ------------------------>
+    <section class="service text-center" id="adddisease">
+        <div class="container">
+            <div class="header-backup"></div>
+            <div class="row">
+                <div class="team-heading text-center">
+                    <div class="col-md-12 col-sm-6"></div>
+                    <h2>بيماری کی معلومات کااندراج</h2><br>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="wrap">
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            <label for="pwd">:بيماری کا نام</label>
+                        </div>
+                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            <label for="pwd">:زمزمہ</label>
+                        </div>
+                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ايڈريس کا اندراج کريں">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            <label for="pwd">:علامات</label>
+                        </div>
+                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ملک کے نام کا اندراج کريں">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            <label for="pwd">:علاج</label>
+                        </div>
+                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ای ميل آئ ڈی کا اندراج کريں"><br><br><br><br><br>
+                    </div>
+                </div>
+                <div class="col-md-4"><button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#menu" style="color:##00B4CC;">فہرست پر جائیں</a></button></div>
+                <div class="col-md-4">
+                    <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#" style="color:##00B4CC;">نيا سيکشن ڈاليں</a></button>
+                </div>
+                <div class="col-md-4">
+                    <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="Myprofile.html" style="color:##00B4CC;">بيماری کااندراج کريں</a></button><br><br>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--------------- View disease ------------------->
+    <section class="team" id="viewdisease">
+        <div class="container">
+            <div class="header-backup"></div>
+            <div class="row">
+                <div class="team-heading text-center">
+                    <div class="col-md-12 col-sm-6"></div>
+                    <h2>بيماری کا علاج </h2>
+                    <h3 style="color:#00B4CC;">علامات کے اندراج سے</h3><br><br><br>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <br><br><br><br><div class="wrap">
+                    <div class="search">
+                        <input type="text" class="searchTerm" placeholder=" بيماری کی علامات کا اندراج کريں">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-2 col-sm-6"> </div>
+                    <div class="col-md-10 col-sm-6">
+                        <br><button style="background-color:#00B4CC ; text-color: #ffff;"><a href="#menu" style="color:#ffff;">مینو پر جائیں</a></button><br><br><br><br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+            <!-----------------  Delete Disease ---------------->
+            <section class="service text-center" id="deletedisease">
+                <div class="container">
+                    <div class="header-backup"></div>
+                    <div class="row">
+                        <div class="team-heading text-center">
+                            <div class="col-md-12 col-sm-6"></div>
+                            <h2 style="color:#ffffff;">بيماری کا اخراج</h2><br>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-sm-6">
+                        <br><br><br><br><br><br><br>
+                        <div class="wrap">
+                            <div class="form-group">
+                                <div class="col-md-4" style="float:right; color:#ffffff;">
+                                    <label for="pwd">:بيماری کا نام</label>
+                                </div>
+                                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں"><br>
+                            </div>
+                        </div>
+                        <div class="col-md-4"><button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#menu" style="color:##00B4CC;">فہرست پر جائیں</a></button></div>
+                        <div class="col-md-4">
+                            <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#" style="color:##00B4CC;">نيا سيکشن ڈاليں</a></button>
+                        </div>
+                        <div class="col-md-4">
+                            <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="Myprofile.html" style="color:##00B4CC;">بيماری کااندراج کريں</a></button><br><br>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-----------------  Update Disease ---------------->
+    <section class="service text-center" id="updatedisease">
+        <div class="container">
+            <div class="header-backup"></div>
+            <div class="row">
+                <div class="team-heading text-center">
+                    <div class="col-md-12 col-sm-6"></div>
+                    <h2 style="color:#ffffff;">بيماری کی درستگی</h2><br>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-6">
+                <br><br><br><br><br><br><br>
+                <div class="wrap">
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            <label for="pwd">:بيماری کا نام</label>
+                        </div>
+                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں"><br>
+                    </div>
+                </div>
+                <div class="col-md-4"><button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#menu" style="color:##00B4CC;">فہرست پر جائیں</a></button></div>
+                <div class="col-md-4">
+                    <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="Myprofile.html" style="color:##00B4CC;">اخراج</a></button><br><br>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!------------------   Footer   --------------------->
+    
+
+    <!-- script tags
+    ============================================================= -->
+    <script src="~/js/jquery-2.1.1.js"></script>
+    <script src="~/js/smoothscroll.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
+</body>
+</html>
