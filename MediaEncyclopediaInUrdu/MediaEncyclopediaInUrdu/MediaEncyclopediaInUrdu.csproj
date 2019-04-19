@@ -207,6 +207,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Views\TreatmentController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -317,6 +318,8 @@
     <Content Include="Views\Shared\HomePageLayout.cshtml" />
     <Content Include="Views\Shared\DiseaseLayout.cshtml" />
     <Content Include="Views\Diease\AddDiease.cshtml" />
+    <Content Include="Views\Treatment\AddTreatment.cshtml" />
+    <Content Include="Views\Shared\TreatmentLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
