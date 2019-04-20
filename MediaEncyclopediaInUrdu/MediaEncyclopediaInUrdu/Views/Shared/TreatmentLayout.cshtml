@@ -36,14 +36,17 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-left">
-                                    <li><a class="menu" href="#about">باہر جائیں</a></li>
-                                    <li><a class="menu" href="book.html">کتاب حاصل</a></li>
-                                    <li><a class="menu active" href="Treatment.html">علاج</a></li>
+                                    <li>@Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>>
+                                    <li>@Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
+                                    <li>@Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
+                                    
+                                    
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a class="menu " href="Myprofile.html">میری پروفائل</a></li>
-                                    <li><a class="menu" href="index.html">صفحۂ اول</a></li>
-                                    <li> <a href="index.html"><img src="img/logo.png" alt="" class="img-responsive logo"></a></li>
+                                    <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+                                    <li>@Html.ActionLink("صفحۂ اول", "HomePage", "Home")</li>
+                                    
+                                    <li> <a href="#"><img src="img/logo.png" alt="" class="img-responsive logo"></a></li>
                                 </ul>
                             </div><!-- /navbar-collapse -->
                         </div><!-- / .container-fluid -->

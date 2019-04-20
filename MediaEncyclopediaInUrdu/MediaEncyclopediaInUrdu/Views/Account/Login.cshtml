@@ -54,11 +54,11 @@
                 <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="پاس ورڈ کا اندراج کريں">
             </div>
             <div class="col-md-4">
-                <button style="background-color:#00B4CC ; text-color: #ffff;"><a href="Myprofile.html" style="color:#ffff;"> داخلہ </a></button>
+                <button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("داخلہ", "UserProfile", "Manage")</button>
             </div>
             <div class="col-md-3"></div>
             <div class="col-md-5">
-                <button style="background-color:#00B4CC ; text-color: #ffff;"><a href="signup.html" style="color:#ffff;">رجسٹر</a></button> <br><br>
+                <button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("رجسٹر", "Register", "Account")</button> <br><br>
             </div>
 
         </form>

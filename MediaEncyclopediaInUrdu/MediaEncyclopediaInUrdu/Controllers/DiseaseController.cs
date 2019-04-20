@@ -6,34 +6,31 @@ using System.Web.Mvc;
 
 namespace MediaEncyclopediaInUrdu.Controllers
 {
-    public class DieaseController : Controller
+    public class DiseaseController : Controller
     {
-        // GET: Diease
+        public ActionResult AddDisease()
+        {
+            return View();
+        }
+        // GET: Disease
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult AddDiease()
-        {
-            return View();
-        }
-
-
-
-        // GET: Diease/Details/5
+        // GET: Disease/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Diease/Create
+        // GET: Disease/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Diease/Create
+        // POST: Disease/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -49,13 +46,13 @@ namespace MediaEncyclopediaInUrdu.Controllers
             }
         }
 
-        // GET: Diease/Edit/5
+        // GET: Disease/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Diease/Edit/5
+        // POST: Disease/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -71,13 +68,13 @@ namespace MediaEncyclopediaInUrdu.Controllers
             }
         }
 
-        // GET: Diease/Delete/5
+        // GET: Disease/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Diease/Delete/5
+        // POST: Disease/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {

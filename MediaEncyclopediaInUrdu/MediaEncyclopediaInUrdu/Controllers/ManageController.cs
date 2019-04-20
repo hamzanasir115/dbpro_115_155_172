@@ -10,7 +10,7 @@ using MediaEncyclopediaInUrdu.Models;
 
 namespace MediaEncyclopediaInUrdu.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -97,6 +97,11 @@ namespace MediaEncyclopediaInUrdu.Controllers
                 message = ManageMessageId.Error;
             }
             return RedirectToAction("ManageLogins", new { Message = message });
+        }
+
+        public ActionResult UserProfile()
+        {
+            return View();
         }
 
         //
