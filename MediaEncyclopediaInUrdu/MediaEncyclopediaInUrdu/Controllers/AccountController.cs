@@ -156,7 +156,19 @@ namespace MediaEncyclopediaInUrdu.Controllers
             account.Password = model.Password;
             dbo.Accounts.Add(account);
             dbo.SaveChanges();
-            return View(model);
+            Profile profile = new Profile();
+
+            profile.Address = model.Address;
+            profile.ContactNumber = model.TelephoneNumber;
+            profile.Country = model.Country;
+            profile.Email = model.Email;
+            profile.LicenseNumber = model.LicenseNumber;
+            profile.TelephoneNumber = model.TelephoneNumber;
+            profile.Type = model.type;
+            dbo.Profiles.Add(profile);
+            dbo.SaveChanges();
+            return RedirectToAction("HomePage", "Home");
+
             /*if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
