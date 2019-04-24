@@ -407,3 +407,4 @@ F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEnc
 F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.dll
 F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.pdb
+F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.csprojResolveAssemblyReference.cache
