@@ -147,9 +147,17 @@ namespace MediaEncyclopediaInUrdu.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Register(Register model)
         {
-            if (ModelState.IsValid)
+            DB50Entities1 dbo = new DB50Entities1();
+            Account account = new Account();
+            account.UserName = model.Name;
+            account.Email = model.Email;
+            account.Password = model.Password;
+            dbo.Accounts.Add(account);
+            dbo.SaveChanges();
+            return View(model);
+            /*if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -166,10 +174,11 @@ namespace MediaEncyclopediaInUrdu.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
-            }
+            }*/
 
             // If we got this far, something failed, redisplay form
             return View(model);
+            
         }
 
         //

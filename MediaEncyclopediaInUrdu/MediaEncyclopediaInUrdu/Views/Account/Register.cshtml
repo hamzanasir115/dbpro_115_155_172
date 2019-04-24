@@ -1,6 +1,5 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿@model MediaEncyclopediaInUrdu.Models.Register
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,63 +18,182 @@
     <![endif]-->
 
 </head>
+
 <body style="background-color:#ffffff;color: #00B4CC;">
     <!--------------- Login ----------------->
     <div class="col-md-3"></div>
     <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
         <font face="Blackadder ITC"><h1 align="center">رجسٹريشن فارم</h1></font>
         <br />
+        <form class="form-horizontal">
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
 
-        <form style="text-align:right;">
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:نام</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں">
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:ايڈريس</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ايڈريس کا اندراج کريں">
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:ملک</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ملک کے نام کا اندراج کريں">
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:ای ميل آئ ڈی</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ای ميل آئ ڈی کا اندراج کريں">
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:ٹيلیفون نمبر</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ٹيلیفون نمبر کا اندراج کريں">
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label>حیثیت منتخب کریں</label>
-                </div>
-                <label><input type="radio" name="gender">ڈاکٹر</label>
-                <label><input type="radio" name="gender">عام صارف</label>
-            </div>
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:لائسنس نمبر</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="لائسنس نمبر کا اندراج کريں">
-            </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4"><button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("آئ ڈی بھیجیں","HomePage", "Home")</button><br><br></div>
-            <div class="col-md-4"></div>
 
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div class="form-group" >
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Name )                     
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Address )
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+
+                
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Country )
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Country, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Email)
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Password )
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.TelephoneNumber )
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.TelephoneNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.type)
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.type, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.LicenseNumber )
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.LicenseNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><button style="background-color:#00B4CC ; text-color: #ffff;" value="آئ ڈی بھیجیں"></button><br><br></div>
+                <div class="col-md-4"></div>
+
+               
+            </div>
         </form>
-        <br><br>
     </div>
 </body>
-</html>
+
+
+      @*  <section class="event-form" style="background-color:aliceblue">
+            <div class="container" style="background-color:aliceblue">
+                <br><br><h2>@ViewBag.Title</h2><br><br>
+                
+            </div><br /><br /><br />
+        </section>*@
+
+
+
+        @*<body style="background-color:#ffffff;color: #00B4CC;">
+                <!--------------- Login ----------------->
+                <div class="col-md-3"></div>
+                <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
+                    <font face="Blackadder ITC"><h1 align="center">رجسٹريشن فارم</h1></font>
+                    <br />
+
+                    <form style="text-align:right;">
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:نام</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:ايڈريس</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ايڈريس کا اندراج کريں">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:ملک</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ملک کے نام کا اندراج کريں">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:ای ميل آئ ڈی</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ای ميل آئ ڈی کا اندراج کريں">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:ٹيلیفون نمبر</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ٹيلیفون نمبر کا اندراج کريں">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label>حیثیت منتخب کریں</label>
+                            </div>
+                            <label><input type="radio" name="gender">ڈاکٹر</label>
+                            <label><input type="radio" name="gender">عام صارف</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4" style="float:right;">
+                                <label for="pwd">:لائسنس نمبر</label>
+                            </div>
+                            <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="لائسنس نمبر کا اندراج کريں">
+                        </div>
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"><button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("آئ ڈی بھیجیں","HomePage", "Home")</button><br><br></div>
+                        <div class="col-md-4"></div>
+
+                    </form>
+                    <br><br>
+                </div>
+            </body>
+        *@
