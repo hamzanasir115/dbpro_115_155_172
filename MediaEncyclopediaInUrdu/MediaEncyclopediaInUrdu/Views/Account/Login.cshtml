@@ -1,6 +1,5 @@
-﻿
+﻿@model MediaEncyclopediaInUrdu.Models.Login
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,112 +18,42 @@
     <![endif]-->
 
 </head>
-<body style="background-color:#ffffff;color: #00B4CC;">
+<div class="form-horizontal" style="background-color:#ffffff;color: #00B4CC;">
     <!--------------- Login ----------------->
-    <br /><br /><br /><br /><br /><br />
     <div class="col-md-3"></div>
     <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
         <font face="Blackadder ITC"><h1 align="center">داخلہ</h1></font>
         <br />
-
-        <form style="text-align:right;">
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label>حیثیت منتخب کریں</label>
-                </div>
-                <label><input type="radio" name="gender">ڈاکٹر</label>
-                <label><input type="radio" name="gender">عام صارف</label>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="name">:استعمال کنندہ کی آئ ڈی</label>
-                </div>
-                <select name=mytextarea>
-                    <option name=one value=one> #GU3562 </option>
-                    <option name=two value=two> #DOC123 </option>
-                    <option name=three value=three> #GU897 </option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-4" style="float:right;">
-                    <label for="pwd">:پاس ورڈ</label>
-                </div>
-                <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="پاس ورڈ کا اندراج کريں">
-            </div>
-            <div class="col-md-4">
-                <button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("داخلہ", "UserProfile", "Manage")</button>
-            </div>
-            <div class="col-md-3"></div>
-            <div class="col-md-5">
-                <button style="background-color:#00B4CC ; text-color: #ffff;">@Html.ActionLink("رجسٹر", "Register", "Account")</button> <br><br>
-            </div>
-
-        </form>
-    </div>
-</body>
-</html>
-@*@using MediaEncyclopediaInUrdu.Models
-@model LoginViewModel
-@{
-    ViewBag.Title = "Log in";
-}
-
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
                 <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    <div class="col-md-1" style="float:right;">
+                        @Html.LabelFor(Model => Model.Name)
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-11">
+                        @Html.LabelFor(Model => Model.Password)
+                    </div>
+                    <div class="col-md-12">
+                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                    </div>
+
+                </div>
+                 <div class="col-md-4"></div>
+                    <div class="col-md-4"><button style="background-color:#00B4CC ; text-color: #ffff;" placeholder="آئ ڈی بھیجیں" contextmenu="آئ ڈی بھیجیں"></button><br><br></div>
+                    <div class="col-md-4"></div>
+            </div>
+        }

@@ -50,4 +50,16 @@ namespace MediaEncyclopediaInUrdu.Models
         [Display(Name = ":لائسنس نمبر")]
         public string LicenseNumber { get; set; }
     }
+    public class Login
+    {
+        [Required]
+        [Display(Name = ":نام")]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = ":پاسورڈ")]
+        public string Password { get; set; }
+    }
 }

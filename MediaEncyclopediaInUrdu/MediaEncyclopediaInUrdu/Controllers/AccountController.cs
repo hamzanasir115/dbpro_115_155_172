@@ -66,29 +66,22 @@ namespace MediaEncyclopediaInUrdu.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(Login model)
         {
-            if (!ModelState.IsValid)
+            Register reg = new Register();
+            DB50Entities1 db = new DB50Entities1();
+            string Name = null;
+            string Password = null;
+            foreach (var per in db.Accounts)
             {
-                return View(model);
+                if (per.UserName == model.Name && per.Password == model.Password)
+                {
+                    Name = per.UserName;
+                    Password = per.Password;
+                }
+               
             }
-
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            return View(model);
         }
 
         //
