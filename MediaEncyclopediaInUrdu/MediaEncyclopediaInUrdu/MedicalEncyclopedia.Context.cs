@@ -13,10 +13,10 @@ namespace MediaEncyclopediaInUrdu
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DB50Entities1 : DbContext
+    public partial class DB50Entities : DbContext
     {
-        public DB50Entities1()
-            : base("name=DB50Entities1")
+        public DB50Entities()
+            : base("name=DB50Entities")
         {
         }
     

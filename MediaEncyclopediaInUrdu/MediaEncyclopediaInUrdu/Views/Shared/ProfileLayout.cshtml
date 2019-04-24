@@ -13,6 +13,10 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='~/text/css'>
     <link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='~/text/css'>
     <script src="~/js/modernizr.js"></script>
+    <script src="~/js/jquery-2.1.1.js"></script>
+    <script src="~/js/smoothscroll.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/custom.js"></script>
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
       <script src="js/respond.min.js"></script>
@@ -36,13 +40,22 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-left">
-                                <li> @Html.ActionLink("باہر جائیں","HomePage", "Home" )</li>
-                                <li> @Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
-                                <li> @Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
-                                
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
+                                <li>
                                 <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+
+                                    <ul>
+                                        <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+                                        <li> @Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>
+                                    </ul>
+                                </li>
+                                    
+                                    <li> @Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
+                                    <li> @Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
+                                <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+
+                                </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                
                                 <li>@Html.ActionLink("صفحۂ اول", "HomePage", "Home")</li>
                                 <li> <a href="#"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
                             </ul>

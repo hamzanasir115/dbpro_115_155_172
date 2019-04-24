@@ -69,7 +69,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
         public async Task<ActionResult> Login(Login model)
         {
             Register reg = new Register();
-            DB50Entities1 db = new DB50Entities1();
+            DB50Entities db = new DB50Entities();
             string Name = null;
             string Password = null;
             foreach (var per in db.Accounts)
@@ -144,7 +144,8 @@ namespace MediaEncyclopediaInUrdu.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(Register model)
         {
-            DB50Entities1 dbo = new DB50Entities1();
+            
+            DB50Entities dbo = new DB50Entities();
             Account account = new Account();
             account.UserName = model.Name;
             account.Email = model.Email;

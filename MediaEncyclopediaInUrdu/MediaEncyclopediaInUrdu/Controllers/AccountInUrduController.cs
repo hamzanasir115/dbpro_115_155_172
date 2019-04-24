@@ -21,7 +21,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
                 return View(model);
             }
 
-            DB50Entities1 dbo = new DB50Entities1();
+            DB50Entities dbo = new DB50Entities();
             Account account = new Account();
             Profile profile = new Profile();
             account.UserName = model.Name;
