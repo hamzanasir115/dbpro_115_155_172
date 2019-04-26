@@ -145,13 +145,16 @@ namespace MediaEncyclopediaInUrdu.Controllers
         public async Task<ActionResult> Register(Register model)
         {
             
-            DB50Entities dbo = new DB50Entities();
+            DB50Entities1 dbo = new DB50Entities1();
             Account account = new Account();
             account.UserName = model.Name;
             account.Email = model.Email;
             account.Password = model.Password;
+            account.Type = model.type;
             dbo.Accounts.Add(account);
             dbo.SaveChanges();
+            
+            
             Profile profile = new Profile();
 
             profile.Address = model.Address;

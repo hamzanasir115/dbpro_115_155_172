@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5bd43d315adb475a9b63515f6209fbb3" Name="Diagram1">
-        <EntityTypeShape EntityType="DB50Model.Account" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB50Model.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB50Model.Disease" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB50Model.Profile" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB50Model.Symptom" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="DB50Model.Treatment" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="DB50Model.FK_Treatment_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="DB50Model.FK_Treatment_Disease" ManuallyRouted="false" />
-        <AssociationConnector Association="DB50Model.DiseaseCategory" ManuallyRouted="false" />
-        <AssociationConnector Association="DB50Model.DiseaseSymptom" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB50Model.Account" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DB50Model.Category" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="DB50Model.Disease" Width="1.5" PointX="3" PointY="5.75" />
+        <EntityTypeShape EntityType="DB50Model.Profile" Width="1.5" PointX="7.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DB50Model.Symptom" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="DB50Model.Treatment" Width="1.5" PointX="5.25" PointY="2.25" />
+        <AssociationConnector Association="DB50Model.FK_Treatment_Category" />
+        <AssociationConnector Association="DB50Model.FK_Treatment_Disease" />
+        <AssociationConnector Association="DB50Model.DiseaseCategory" />
+        <AssociationConnector Association="DB50Model.DiseaseSymptom" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MediaEncyclopediaInUrdu.Models.Disease
+
+@{
 
     Layout = "~/Views/Shared/DiseaseLayout.cshtml";
 }
@@ -11,43 +13,7 @@
     <!-- ====================================================
     header section -->
     <section class="abc" id="menu">
-        <header class="top-header">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid nav-bar">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                                    <span class="sr-only">Toggle navigation</span>
-                                </button>
-                            </div>
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-left">
-                                    <li>@Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>
-                                    @*<li>@Html.ActionLink("ترتیب زمزمہ", "", "")</li>*@
-                                    <li>@Html.ActionLink("ترتیب بيمارياں", "AddDisease", "Disease")</li>
-                                    <li>@Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
-                                    <li>@Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
-                                    @*<li><a class="menu" href="Signout">باہر جائیں</a></li>
-                                        <li><a class="menu" href="AddCategory.html">ترتیب زمزمہ</a></li>
-                                        <li><a class="menu active" href="AddDisease.html">ترتیب بيمارياں</a></li>
-                                        <li><a class="menu" href="Book.html">کتاب حاصل</a></li>
-                                        <li><a class="menu" href="Treatment.html">علاج</a></li>*@
-                                </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
-                                    <li>@Html.ActionLink("صفحۂ اول", "HomePage", "Home")</li>
-
-                                    <li> <a href="#"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
-                                </ul>
-                            </div><!-- /navbar-collapse -->
-                        </div><!-- / .container-fluid -->
-                    </nav>
-                </div>
-            </div>
-        </header> <!-- end of header area -->
+         <!-- end of header area -->
         <div class="header-backup">
         </div>
         <!-- middle Portion -->
@@ -85,43 +51,79 @@
                     <h2>بيماری کی معلومات کااندراج</h2><br>
                 </div>
             </div>
-            <div class="col-md-12 col-sm-6">
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <div class="wrap">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
+
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
                     <div class="form-group">
                         <div class="col-md-4" style="float:right; color:#ffffff;">
-                            <label for="pwd">:بيماری کا نام</label>
+                            @Html.LabelFor(Model => Model.Name)
                         </div>
-                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں">
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <div class="col-md-4" style="float:right; color:#ffffff;">
-                            <label for="pwd">:زمزمہ</label>
+                            @Html.LabelFor(Model => Model.Detail)
                         </div>
-                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ايڈريس کا اندراج کريں">
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-4" style="float:right; color:#ffffff;">
-                            <label for="pwd">:علامات</label>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Detail, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
                         </div>
-                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ملک کے نام کا اندراج کريں">
+
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-4" style="float:right; color:#ffffff;">
-                            <label for="pwd">:علاج</label>
-                        </div>
-                        <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ای ميل آئ ڈی کا اندراج کريں"><br><br><br><br><br>
-                    </div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="مینو پر جائیں" type="submit"><br><br></div>
+                    <div class="col-md-4"></div>
+
                 </div>
-                <div class="col-md-4"><button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#menu" style="color:##00B4CC;">فہرست پر جائیں</a></button></div>
-                <div class="col-md-4">
-                    <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#" style="color:##00B4CC;">نيا سيکشن ڈاليں</a></button>
+            }
+            </div>
+        
+
+        @*<div class="col-md-12 col-sm-6">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="wrap">
+                <div class="form-group">
+                    <div class="col-md-4" style="float:right; color:#ffffff;">
+                        <label for="pwd">:بيماری کا نام</label>
+                    </div>
+                    <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="نام کا اندراج کريں">
                 </div>
-                <div class="col-md-4">
-                    <button style="background-color:#ffffff ; text-color: #00B4CC;">@Html.ActionLink("بيماری کااندراج کريں", "AddDisease", "Disease")</button><br><br>
+                <div class="form-group">
+                    <div class="col-md-4" style="float:right; color:#ffffff;">
+                        <label for="pwd">:زمزمہ</label>
+                    </div>
+                    <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ايڈريس کا اندراج کريں">
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4" style="float:right; color:#ffffff;">
+                        <label for="pwd">:علامات</label>
+                    </div>
+                    <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ملک کے نام کا اندراج کريں">
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4" style="float:right; color:#ffffff;">
+                        <label for="pwd">:علاج</label>
+                    </div>
+                    <input style="text-align:right;" type="password" class="form-control" id="pwd" placeholder="ای ميل آئ ڈی کا اندراج کريں"><br><br><br><br><br>
                 </div>
             </div>
+            <div class="col-md-4"><button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#menu" style="color:##00B4CC;">فہرست پر جائیں</a></button></div>
+            <div class="col-md-4">
+                <button style="background-color:#ffffff ; text-color: #00B4CC;"><a href="#" style="color:##00B4CC;">نيا سيکشن ڈاليں</a></button>
+            </div>
+            <div class="col-md-4">
+                <button style="background-color:#ffffff ; text-color: #00B4CC;">@Html.ActionLink("بيماری کااندراج کريں", "AddDisease", "Disease")</button><br><br>
+            </div>
         </div>
+    </div>
     </section>
     <!--------------- View disease ------------------->
     <section class="team" id="viewdisease">
@@ -216,3 +218,4 @@
     <script src="~/js/custom.js"></script>
 </body>
 </html>
+*@
