@@ -210,6 +210,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PasswordController.cs" />
+    <Compile Include="Controllers\SymptomsController.cs" />
     <Compile Include="Disease.cs">
       <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
     </Compile>
@@ -385,6 +386,7 @@
     <Content Include="Views\Disease\AddDisease.cshtml" />
     <Content Include="Views\AccountInUrdu\Register.cshtml" />
     <Content Include="Views\AccountInUrdu\Registered.cshtml" />
+    <Content Include="Views\Symptoms\AddSymptoms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />
