@@ -387,6 +387,12 @@
     <Content Include="Views\AccountInUrdu\Register.cshtml" />
     <Content Include="Views\AccountInUrdu\Registered.cshtml" />
     <Content Include="Views\Symptoms\AddSymptoms.cshtml" />
+    <Content Include="Views\Disease\ViewDisease.cshtml" />
+    <Content Include="Views\Disease\UpdateDisease.cshtml" />
+    <Content Include="Views\Disease\DeleteDisease.cshtml" />
+    <Content Include="Views\Symptoms\ViewSymptoms.cshtml" />
+    <Content Include="Views\Symptoms\UpdateSymptoms.cshtml" />
+    <Content Include="Views\Symptoms\DeleteSymptoms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />

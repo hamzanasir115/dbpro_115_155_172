@@ -14,7 +14,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddDisease(Disease model )
+        public ActionResult AddDisease(Disease model)
         {
             DB50Entities dbo = new DB50Entities();
             Disease disease = new Disease();
@@ -24,8 +24,66 @@ namespace MediaEncyclopediaInUrdu.Controllers
             dbo.SaveChanges();
             return View();
         }
-        // GET: Disease
-        public ActionResult Index()
+        public ActionResult ViewDisease()
+        {
+            ViewBag.Title = "بيمارياں ملاحظہ کريں";
+            DB50Entities db = new DB50Entities();
+            return View(db.Diseases);
+        }
+        public ActionResult UpdateDisease(int id)
+        {
+            ViewBag.Title = " درستگی ";
+            using (DB50Entities db = new DB50Entities())
+            {
+
+                return View(db.Diseases.Where(x => x.DiseaseID == id).Single());
+            }
+        }
+        [HttpPost]
+        public ActionResult UpdateDisease(Disease obj, int id)
+        {
+            try
+            {
+                using (DB50Entities db = new DB50Entities())
+                {
+                    db.Diseases.Find(id).Name = obj.Name;
+                    db.Diseases.Find(id).Detail = obj.Detail;
+                    db.SaveChanges();
+                }
+                return View("AddDisease");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult DeleteDisease(int id)
+        {
+            ViewBag.Title = "اخراج";
+            DB50Entities db = new DB50Entities();
+            Disease c = db.Diseases.Find(id);
+            return View(c);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteDisease(int id, Disease obj)
+        {
+            try
+            {
+                DB50Entities db = new DB50Entities();
+                var ToDelete = db.Diseases.Single(x => x.DiseaseID == id);
+                db.Diseases.Remove(ToDelete);
+                db.SaveChanges();
+                return View("AddDisease");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+  
+    // GET: Disease
+    public ActionResult Index()
         {
             return View();
         }

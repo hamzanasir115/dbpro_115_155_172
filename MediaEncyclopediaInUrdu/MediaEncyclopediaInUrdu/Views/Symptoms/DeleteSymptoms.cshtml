@@ -1,0 +1,53 @@
+﻿@model MediaEncyclopediaInUrdu.Symptom
+
+@{
+    Layout = "~/Views/Shared/DiseaseLayout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <section class="event-form" style="background-color:#ffffff">
+        <div class="container" style="background-color:#ffffff">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+
+                @Html.AntiForgeryToken()
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Detail)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Detail)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Reason)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Reason)
+                        </dd>
+
+                    </dl>
+
+                    <div class="form-group">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4"><input style="background-color:#00B4CC ; font-size:30px" value="اخراج" type="submit" , onclick="return confirm('اخراج چا ھتے ھیں؟') ;" /> <br> <br></div>
+                        <div class="col-md-4"></div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+}
