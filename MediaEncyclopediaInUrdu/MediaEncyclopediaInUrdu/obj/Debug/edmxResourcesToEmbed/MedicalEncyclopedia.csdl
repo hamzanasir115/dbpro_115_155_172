@@ -84,7 +84,7 @@
     <Property Name="TreatmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="DiseaseID" Type="Int32" Nullable="false" />
     <Property Name="CategoryID" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TreatmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Category" Relationship="DB50Model.FK_Treatment_Category" FromRole="Treatment" ToRole="Category" />
     <NavigationProperty Name="Disease" Relationship="DB50Model.FK_Treatment_Disease" FromRole="Treatment" ToRole="Disease" />

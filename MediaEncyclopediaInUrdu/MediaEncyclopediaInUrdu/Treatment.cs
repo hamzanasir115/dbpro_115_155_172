@@ -17,7 +17,7 @@ namespace MediaEncyclopediaInUrdu
         public int TreatmentID { get; set; }
         public int DiseaseID { get; set; }
         public int CategoryID { get; set; }
-        public string Name { get; set; }
+        public string TreatmentName { get; set; }
         public string Detail { get; set; }
     
         public virtual Category Category { get; set; }

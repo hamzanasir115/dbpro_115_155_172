@@ -70,7 +70,7 @@
     <Property Name="TreatmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DiseaseID" Type="int" Nullable="false" />
     <Property Name="CategoryID" Type="int" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TreatmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Detail" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="FK_DiseaseCategory_Category">

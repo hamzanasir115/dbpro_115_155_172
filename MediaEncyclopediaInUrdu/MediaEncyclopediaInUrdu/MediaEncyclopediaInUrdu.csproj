@@ -237,6 +237,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\Treatment.cs" />
     <Compile Include="Profile.cs">
       <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
     </Compile>

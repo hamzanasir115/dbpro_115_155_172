@@ -57,7 +57,7 @@
       <EntityTypeMapping TypeName="DB50Model.Treatment">
         <MappingFragment StoreEntitySet="Treatment">
           <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
           <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
           <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
