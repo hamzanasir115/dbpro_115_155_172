@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DB50Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DB50Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -184,86 +184,63 @@
             <End Role="Treatment" EntitySet="Treatment" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB50Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="DB50Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="DB50Model.Account" />
-          <EntitySet Name="Categories" EntityType="DB50Model.Category" />
-          <EntitySet Name="Diseases" EntityType="DB50Model.Disease" />
-          <EntitySet Name="Profiles" EntityType="DB50Model.Profile" />
-          <EntitySet Name="Symptoms" EntityType="DB50Model.Symptom" />
-          <EntitySet Name="Treatments" EntityType="DB50Model.Treatment" />
-          <AssociationSet Name="FK_Treatment_Category" Association="DB50Model.FK_Treatment_Category">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Treatment" EntitySet="Treatments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Treatment_Disease" Association="DB50Model.FK_Treatment_Disease">
-            <End Role="Disease" EntitySet="Diseases" />
-            <End Role="Treatment" EntitySet="Treatments" />
-          </AssociationSet>
-          <AssociationSet Name="DiseaseCategory" Association="DB50Model.DiseaseCategory">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Disease" EntitySet="Diseases" />
-          </AssociationSet>
-          <AssociationSet Name="DiseaseSymptom" Association="DB50Model.DiseaseSymptom">
-            <End Role="Disease" EntitySet="Diseases" />
-            <End Role="Symptom" EntitySet="Symptoms" />
-          </AssociationSet>
-        </EntityContainer>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Treatments" Relationship="DB50Model.FK_Treatment_Category" FromRole="Category" ToRole="Treatment" />
-          <NavigationProperty Name="Diseases" Relationship="DB50Model.DiseaseCategory" FromRole="Category" ToRole="Disease" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Treatments" Relationship="Self.FK_Treatment_Category" FromRole="Category" ToRole="Treatment" />
+          <NavigationProperty Name="Diseases" Relationship="Self.DiseaseCategory" FromRole="Category" ToRole="Disease" />
         </EntityType>
         <EntityType Name="Disease">
           <Key>
             <PropertyRef Name="DiseaseID" />
           </Key>
           <Property Name="DiseaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Treatments" Relationship="DB50Model.FK_Treatment_Disease" FromRole="Disease" ToRole="Treatment" />
-          <NavigationProperty Name="Categories" Relationship="DB50Model.DiseaseCategory" FromRole="Disease" ToRole="Category" />
-          <NavigationProperty Name="Symptoms" Relationship="DB50Model.DiseaseSymptom" FromRole="Disease" ToRole="Symptom" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Treatments" Relationship="Self.FK_Treatment_Disease" FromRole="Disease" ToRole="Treatment" />
+          <NavigationProperty Name="Categories" Relationship="Self.DiseaseCategory" FromRole="Disease" ToRole="Category" />
+          <NavigationProperty Name="Symptoms" Relationship="Self.DiseaseSymptom" FromRole="Disease" ToRole="Symptom" />
         </EntityType>
         <EntityType Name="Profile">
           <Key>
             <PropertyRef Name="ProfileID" />
           </Key>
           <Property Name="ProfileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ContactNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Symptom">
           <Key>
             <PropertyRef Name="SymptomID" />
           </Key>
           <Property Name="SymptomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Diseases" Relationship="DB50Model.DiseaseSymptom" FromRole="Symptom" ToRole="Disease" />
+          <NavigationProperty Name="Diseases" Relationship="Self.DiseaseSymptom" FromRole="Symptom" ToRole="Disease" />
         </EntityType>
         <EntityType Name="Treatment">
           <Key>
@@ -272,14 +249,14 @@
           <Property Name="TreatmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DiseaseID" Type="Int32" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Category" Relationship="DB50Model.FK_Treatment_Category" FromRole="Treatment" ToRole="Category" />
-          <NavigationProperty Name="Disease" Relationship="DB50Model.FK_Treatment_Disease" FromRole="Treatment" ToRole="Disease" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Treatment_Category" FromRole="Treatment" ToRole="Category" />
+          <NavigationProperty Name="Disease" Relationship="Self.FK_Treatment_Disease" FromRole="Treatment" ToRole="Disease" />
         </EntityType>
         <Association Name="FK_Treatment_Category">
-          <End Type="DB50Model.Category" Role="Category" Multiplicity="1" />
-          <End Type="DB50Model.Treatment" Role="Treatment" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Treatment" Type="Self.Treatment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Category">
               <PropertyRef Name="CategoryID" />
@@ -290,8 +267,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Treatment_Disease">
-          <End Type="DB50Model.Disease" Role="Disease" Multiplicity="1" />
-          <End Type="DB50Model.Treatment" Role="Treatment" Multiplicity="*" />
+          <End Role="Disease" Type="Self.Disease" Multiplicity="1" />
+          <End Role="Treatment" Type="Self.Treatment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Disease">
               <PropertyRef Name="DiseaseID" />
@@ -302,13 +279,37 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="DiseaseCategory">
-          <End Type="DB50Model.Category" Role="Category" Multiplicity="*" />
-          <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
+          <End Role="Category" Type="Self.Category" Multiplicity="*" />
+          <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
         </Association>
         <Association Name="DiseaseSymptom">
-          <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
-          <End Type="DB50Model.Symptom" Role="Symptom" Multiplicity="*" />
+          <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+          <End Role="Symptom" Type="Self.Symptom" Multiplicity="*" />
         </Association>
+        <EntityContainer Name="DB50Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Diseases" EntityType="Self.Disease" />
+          <EntitySet Name="Profiles" EntityType="Self.Profile" />
+          <EntitySet Name="Symptoms" EntityType="Self.Symptom" />
+          <EntitySet Name="Treatments" EntityType="Self.Treatment" />
+          <AssociationSet Name="FK_Treatment_Category" Association="Self.FK_Treatment_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Treatment" EntitySet="Treatments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Treatment_Disease" Association="Self.FK_Treatment_Disease">
+            <End Role="Disease" EntitySet="Diseases" />
+            <End Role="Treatment" EntitySet="Treatments" />
+          </AssociationSet>
+          <AssociationSet Name="DiseaseCategory" Association="Self.DiseaseCategory">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Disease" EntitySet="Diseases" />
+          </AssociationSet>
+          <AssociationSet Name="DiseaseSymptom" Association="Self.DiseaseSymptom">
+            <End Role="Disease" EntitySet="Diseases" />
+            <End Role="Symptom" EntitySet="Symptoms" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -318,80 +319,80 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="DB50Model.Account">
               <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="DB50Model.Category">
               <MappingFragment StoreEntitySet="Category">
-                <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Diseases">
             <EntityTypeMapping TypeName="DB50Model.Disease">
               <MappingFragment StoreEntitySet="Disease">
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Profiles">
             <EntityTypeMapping TypeName="DB50Model.Profile">
               <MappingFragment StoreEntitySet="Profile">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
                 <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Symptoms">
             <EntityTypeMapping TypeName="DB50Model.Symptom">
               <MappingFragment StoreEntitySet="Symptom">
-                <ScalarProperty Name="Reason" ColumnName="Reason" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Treatments">
             <EntityTypeMapping TypeName="DB50Model.Treatment">
               <MappingFragment StoreEntitySet="Treatment">
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
                 <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="DiseaseCategory" TypeName="DB50Model.DiseaseCategory" StoreEntitySet="DiseaseCategory">
-            <EndProperty Name="Disease">
-              <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
-            </EndProperty>
             <EndProperty Name="Category">
               <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="DiseaseSymptom" TypeName="DB50Model.DiseaseSymptom" StoreEntitySet="DiseaseSymptom">
-            <EndProperty Name="Symptom">
-              <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
-            </EndProperty>
             <EndProperty Name="Disease">
               <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="DiseaseSymptom" TypeName="DB50Model.DiseaseSymptom" StoreEntitySet="DiseaseSymptom">
+            <EndProperty Name="Disease">
+              <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+            </EndProperty>
+            <EndProperty Name="Symptom">
+              <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

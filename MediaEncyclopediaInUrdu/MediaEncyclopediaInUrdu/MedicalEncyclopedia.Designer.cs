@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Engr\Desktop\New folder (2)\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\MedicalEncyclopedia.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\UNI DATA\Semester 6\DBMS\Project\dbpro_115_155_172\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\MedicalEncyclopedia.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

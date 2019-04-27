@@ -78,6 +78,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
                 {
                     Name = per.UserName;
                     Password = per.Password;
+                    Session["Email"] = per.Email;
                     return RedirectToAction("UserProfile", "Manage");
 
                 }
@@ -145,7 +146,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
         public async Task<ActionResult> Register(Register model)
         {
             
-            DB50Entities1 dbo = new DB50Entities1();
+            DB50Entities dbo = new DB50Entities();
             Account account = new Account();
             account.UserName = model.Name;
             account.Email = model.Email;

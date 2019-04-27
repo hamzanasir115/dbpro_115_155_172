@@ -16,7 +16,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
         [HttpPost]
         public ActionResult AddDisease(Disease model )
         {
-            DB50Entities1 dbo = new DB50Entities1();
+            DB50Entities dbo = new DB50Entities();
             Disease disease = new Disease();
             disease.Name = model.Name;
             disease.Detail = model.Detail;

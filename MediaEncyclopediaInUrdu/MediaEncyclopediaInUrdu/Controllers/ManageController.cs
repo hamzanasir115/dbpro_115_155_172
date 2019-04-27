@@ -101,15 +101,32 @@ namespace MediaEncyclopediaInUrdu.Controllers
 
         public ActionResult UserProfile()
         {
-            string email = User.Identity.Name;
-            ViewBag.Email = User.Identity.Name;
+            string email = Session["Email"].ToString();
+            ViewBag.Email = email;
+            DB50Entities db = new DB50Entities();
+            foreach (var user in db.Accounts)
+            {
+                if (email == user.Email)
+                {
+                    foreach (var us in db.Profiles)
+                    {
+                        if (us.Email == email)
+                        {
+                            ViewBag.Country = us.Country;
+                            ViewBag.Email = us.Email;
+                            ViewBag.Number = us.ContactNumber;
+                            break;
+                        }
+                    }
+                }
+            }
             return View();
         }
         [HttpPost]
         public ActionResult UserProfile(Register model)
         {
-            string email = User.Identity.Name;
-            ViewBag.Email = User.Identity.Name;
+            string email = Session["UserName"].ToString();
+            ViewBag.Email = email;
             DB50Entities db = new DB50Entities();
             foreach(var user in db.Accounts)
             {
