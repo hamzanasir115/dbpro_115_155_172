@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MediaEncyclopediaInUrdu.Models;
+using System.IO;
 
 namespace MediaEncyclopediaInUrdu.Controllers
 {
@@ -91,7 +92,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
                         Session["Email"] = per.Email;
                         return RedirectToAction("AddDisease", "Disease");
                     }
-                    
+
                 }
 
             }
@@ -156,7 +157,16 @@ namespace MediaEncyclopediaInUrdu.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(Register model)
         {
-            
+
+            string fileName = Path.GetFileNameWithoutExtension(model.ImageFile.FileName);
+            string extension = Path.GetExtension(model.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+            model.ImagePath = "~/img/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/img/"), fileName);
+            model.ImageFile.SaveAs(fileName);
+            var ImageFile = model.ImageFile;
+            var ImagePath = model.ImagePath;
+
             DB50Entities dbo = new DB50Entities();
             Account account = new Account();
             account.UserName = model.Name;
@@ -165,8 +175,8 @@ namespace MediaEncyclopediaInUrdu.Controllers
             account.Type = model.type;
             dbo.Accounts.Add(account);
             dbo.SaveChanges();
-            
-            
+
+
             Profile profile = new Profile();
 
             profile.Address = model.Address;
@@ -176,11 +186,11 @@ namespace MediaEncyclopediaInUrdu.Controllers
             profile.LicenseNumber = model.LicenseNumber;
             profile.TelephoneNumber = model.TelephoneNumber;
             profile.Type = model.type;
+            profile.ImagePath = ImagePath;
             dbo.Profiles.Add(profile);
             dbo.SaveChanges();
             return RedirectToAction("HomePage", "Home");
 
-           
             // If we got this far, something failed, redisplay form
             return View(model);
             

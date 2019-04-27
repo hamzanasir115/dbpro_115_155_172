@@ -49,10 +49,18 @@ namespace MediaEncyclopediaInUrdu.Models
         [Required]
         [Display(Name = ":لائسنس نمبر")]
         public string LicenseNumber { get; set; }
+
+        [Display(Name = "اپنی تصویر بھیجیں")]
+        public string ImagePath { get; set; }
+
+        [Required]
+        [Display(Name = "تصویر ")]
+        public HttpPostedFileBase ImageFile { get; set; }
     }
     public class Login
     {
         [Required]
+        [EmailAddress]
         [Display(Name = ":نام")]
         public string Name { get; set; }
 

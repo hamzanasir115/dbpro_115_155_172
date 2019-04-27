@@ -32,6 +32,7 @@
     <EntitySetMapping Name="Profiles">
       <EntityTypeMapping TypeName="DB50Model.Profile">
         <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
           <ScalarProperty Name="Address" ColumnName="Address" />
