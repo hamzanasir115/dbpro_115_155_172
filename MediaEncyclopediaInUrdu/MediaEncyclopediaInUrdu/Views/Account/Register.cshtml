@@ -104,13 +104,12 @@
 
                     </div>
 
-
                     <div class="form-group">
-                        <div class="col-md-12">
-                            @Html.LabelFor(Model => Model.type, new { style = "margin-left:485px" })
-                        </div>
-                        <div class="col-md-12">
-                            @Html.TextBoxFor(m => m.type, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        <div class="col-md-12" , style="margin-left:475px">
+                            ڈاکٹر
+                            @Html.RadioButtonFor(Model => Model.type, "ڈاکٹر")
+                            مریض
+                            @Html.RadioButtonFor(Model => Model.type, "مریض")
                         </div>
 
                     </div>

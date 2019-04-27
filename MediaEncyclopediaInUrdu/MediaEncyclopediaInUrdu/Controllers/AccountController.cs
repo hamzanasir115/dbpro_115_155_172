@@ -76,11 +76,22 @@ namespace MediaEncyclopediaInUrdu.Controllers
             {
                 if (per.Email == model.Name && per.Password == model.Password)
                 {
-                    Name = per.UserName;
-                    Password = per.Password;
-                    Session["Email"] = per.Email;
-                    return RedirectToAction("UserProfile", "Manage");
+                    if (per.Type == "مریض")
+                    {
+                        Name = per.UserName;
+                        Password = per.Password;
+                        Session["Email"] = per.Email;
+                        return RedirectToAction("UserProfile", "Manage");
 
+                    }
+                    else
+                    {
+                        Name = per.UserName;
+                        Password = per.Password;
+                        Session["Email"] = per.Email;
+                        return RedirectToAction("AddDisease", "Disease");
+                    }
+                    
                 }
 
             }

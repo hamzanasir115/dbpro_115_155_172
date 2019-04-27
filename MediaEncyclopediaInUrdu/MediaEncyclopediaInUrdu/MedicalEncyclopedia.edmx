@@ -309,7 +309,7 @@
           <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
           <End Type="DB50Model.Symptom" Role="Symptom" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
