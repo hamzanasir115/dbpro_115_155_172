@@ -9,11 +9,11 @@ namespace MediaEncyclopediaInUrdu.Models
     public class Treatment
     {
         [Required]
-        [Display(Name = ":بیماری کی آئ ڈی")]
+        [Display(Name = ":بیماری منتخب کریں")]
         public string DiseaseID { get; set; }
 
         [Required]
-        [Display(Name = ":کیٹیگری کی آئ ڈی ")]
+        [Display(Name = ":کیٹیگری منتخب کریں ")]
         public string CategoryID { get; set; }
 
         [Required]

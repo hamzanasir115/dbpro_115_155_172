@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MediaEncyclopediaInUrdu.Treatment>
+
+@{
+    Layout = "~/Views/Shared/TreatmentLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <section class="event-form" style="background-color:#ffffff">
+        <div class="container" style="background-color:#ffffff">
+            <br><br><h2>@ViewBag.Title</h2><br><br>
+            <form class="form-horizontal" action="/action_page.php">
+                @Html.AntiForgeryToken()
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TreatmentName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Detail)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TreatmentName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Detail)
+                            </td>
+                            <td>
+                                @Html.ActionLink("درستگی", "UpdateTreatment", new { id = item.DiseaseID }) |
+                                @Html.ActionLink("اخراج", "DeleteTreatment", new { id = item.DiseaseID })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </form>
+        </div><br /><br /><br />
+    </section>
+}
+
+
+

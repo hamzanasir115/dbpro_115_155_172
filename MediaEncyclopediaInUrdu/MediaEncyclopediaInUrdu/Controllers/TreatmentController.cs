@@ -60,6 +60,13 @@ namespace MediaEncyclopediaInUrdu.Views
             dbo.SaveChanges();
             return RedirectToAction("AddTreatment");
         }
+
+        public ActionResult ViewTreatment()
+        {
+            ViewBag.Title = "علاج ملاحظہ کريں";
+            DB50Entities db = new DB50Entities();
+            return View(db.Treatments);
+        }
         // GET: Treatment/Details/5
         public ActionResult Details(int id)
         {
