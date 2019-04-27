@@ -44,6 +44,7 @@
                                     <option value="@ViewBag.Ids[i]">@name</option>
                                     i++;
                                 }
+
                             </select>
                             @Html.ValidationMessageFor(model => model.DiseaseID, "", new { @class = "text-danger" })
                         </div>
