@@ -5,77 +5,100 @@
     Layout = "~/Views/Shared/TreatmentLayout.cshtml";
 }
 
-<h2>AddTreatment</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Treatment</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.DiseaseID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @{
-                    var id = Request.Url.Segments[1];
-                    int i = 0;
-                }
-                <select name="Name" id="cmb">
-                    @foreach (var name in ViewBag.DName)
-                    {
-                        <option value="@ViewBag.Ids[i]">@name</option>
-                        i++;
-                    }
-                </select>
-                @Html.ValidationMessageFor(model => model.DiseaseID, "", new { @class = "text-danger" })
+<body style="background-color:#ffffff">
+
+    <!-- By Entering disease -->
+    <section class="service text-center" id="disease">
+        <div class="container">
+            <div class="header-backup"></div>
+            <div class="row">
+                <div class="team-heading text-center">
+                    <div class="col-md-12 col-sm-6"></div>
+                    <h2>بيماری کا علاج </h2>
+                    <h3 style="color:#ffff;"> بيماری کے نام کے اندراج سے ھومیوپیتھک علاج</h3><br>
+                </div>
             </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <div class="col-md-8" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.DiseaseID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @{
+                                var id = Request.Url.Segments[1];
+                                int i = 0;
+                            }
+                            <select name="Name" id="cmb" size="1" style="width:950px; font-size:large; float:right">
+                                @foreach (var name in ViewBag.DName)
+                                {
+                                    <option value="@ViewBag.Ids[i]">@name</option>
+                                    i++;
+                                }
+                            </select>
+                            @Html.ValidationMessageFor(model => model.DiseaseID, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-8" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @{
+                                var Id = Request.Url.Segments[1];
+                                int j = 0;
+                            }
+                            <select name="Type" id="cmb" size="1" style="width:950px; font-size:large; float:right">
+                                @foreach (var type in ViewBag.CName)
+                                {
+                                    <option value="@ViewBag.CIds[j]">@type</option>
+                                    j++;
+                                }
+                            </select>
+                            @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.TreatmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TreatmentName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TreatmentName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="مینو پر جائیں" type="submit"><br><br></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <br />
+                <br />
+                                }
 
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @{
-                    var Id = Request.Url.Segments[1];
-                    int j = 0;
-                }
-                <select name="Type" id="cmb">
-                    @foreach (var type in ViewBag.CName)
-                    {
-                        <option value="@ViewBag.CIds[j]">@type</option>
-                        j++;
-                    }
-                </select>
-                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })              
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.TreatmentName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TreatmentName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TreatmentName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    </section>
+</body>
