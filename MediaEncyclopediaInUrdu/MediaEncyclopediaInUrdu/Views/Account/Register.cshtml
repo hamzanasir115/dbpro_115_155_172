@@ -19,121 +19,121 @@
 
 </head>
 
-<div class="form-horizontal" style="background-color:#ffffff;color: #00B4CC;">
-    <!--------------- Login ----------------->
-    <div class="col-md-3"></div>
-    <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
-        <font face="Blackadder ITC"><h1 align="center">رجسٹريشن فارم</h1></font>
-        <br />
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-horizontal">
-                <hr />
+    <div class="form-horizontal" style="background-color:#ffffff;color: #00B4CC;">
+        <!--------------- Login ----------------->
+        <div class="col-md-3"></div>
+        <div class="col-md-6" margin-left:30px style=";border-style:solid;border-color: #00B4CC">
+            <font face="Blackadder ITC"><h1 align="center">رجسٹريشن فارم</h1></font>
+            <br />
+           @using (Html.BeginForm())
+           {
+                @Html.AntiForgeryToken()
+                <div class="form-horizontal">
+                    <hr />
 
 
-                @Html.ValidationSummary("", new { @class = "text-danger" })
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
 
-                <div class="form-group">
-                    <div class="col-md-1" style="float:right;">
-                        @Html.LabelFor(Model => Model.Name)
+                    <div class="form-group">
+                        <div class="col-md-1" style="float:right;">
+                            @Html.LabelFor(Model => Model.Name, new { style = "margin-left:-8px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
                     </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+
+                    <div class="form-group">
+                        <div class="col-md-offset-11">
+                            @Html.LabelFor(Model => Model.Address, new { style = "margin-left:-10px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-md-1" style="float:right;">
+                            @Html.LabelFor(Model => Model.Country, new { style = "margin-left:-13px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Country, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-2" style="float:right" >
+                            @Html.LabelFor(Model => Model.Email, new { style = "margin-left:30px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-11">
+                            @Html.LabelFor(Model => Model.Password, new { style = "margin-left:-8px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                       <div class="col-md-offset-11">
+                            @Html.LabelFor(Model => Model.ConfirmPassword, new { style = "margin-left:-35px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.LabelFor(Model => Model.TelephoneNumber, new { style = "margin-left:510px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.TelephoneNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.LabelFor(Model => Model.type, new { style = "margin-left:485px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.type, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @Html.LabelFor(Model => Model.LicenseNumber, new { style = "margin-left:510px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.LicenseNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="آئ ڈی بھیجیں" type="submit"><br><br></div>
+                    <div class="col-md-4"></div>
+
 
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-11">
-                        @Html.LabelFor(Model => Model.Address)
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-1" style="float:right;">
-                        @Html.LabelFor(Model => Model.Country, new { style = "margin-left:-8px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Country, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-2" style="float:right">
-                        @Html.LabelFor(Model => Model.Email, new { style = "margin-left:30px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-11">
-                        @Html.LabelFor(Model => Model.Password, new { style = "margin-left:-8px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-11">
-                        @Html.LabelFor(Model => Model.ConfirmPassword, new { style = "margin-left:-35px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.ConfirmPassword, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(Model => Model.TelephoneNumber, new { style = "margin-left:500px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.TelephoneNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(Model => Model.type, new { style = "margin-left:475px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.type, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(Model => Model.LicenseNumber, new { style = "margin-left:500px" })
-                    </div>
-                    <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.LicenseNumber, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                    </div>
-
-                </div>
-
-                <div class="col-md-4"></div>
-                <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="آئ ڈی بھیجیں" type="submit"><br><br></div>
-                <div class="col-md-4"></div>
-
-
-            </div>
-
-        }
+            }
+        </div>
     </div>
-</div>
-
+    
 
