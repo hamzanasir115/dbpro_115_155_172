@@ -104,6 +104,8 @@ namespace MediaEncyclopediaInUrdu.Controllers
             string email = Session["Email"].ToString();
             ViewBag.Email = email;
             DB50Entities db = new DB50Entities();
+            Register account = new Register();
+
             foreach (var user in db.Accounts)
             {
                 if (email == user.Email)
@@ -115,6 +117,16 @@ namespace MediaEncyclopediaInUrdu.Controllers
                             ViewBag.Country = us.Country;
                             ViewBag.Email = us.Email;
                             ViewBag.Number = us.ContactNumber;
+                            ViewBag.Name = user.UserName;
+                            account.Address = us.Address;
+                            account.Country = us.Country;
+                            account.Email = us.Email;
+                            account.ImagePath = us.ImagePath;
+                            account.LicenseNumber = us.LicenseNumber;
+                            account.Name = user.UserName;
+                            account.TelephoneNumber = us.ContactNumber;
+                            account.type = us.Type;
+                            return View(account);
                             break;
                         }
                     }

@@ -1,8 +1,6 @@
-﻿@model MediaEncyclopediaInUrdu.Models.Disease
-
+﻿@model MediaEncyclopediaInUrdu.Models.Symptoms
 @{
-
-    Layout = "~/Views/Shared/DiseaseLayout.cshtml";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,7 +11,7 @@
     <!-- ====================================================
     header section -->
     <section class="abc" id="menu">
-         <!-- end of header area -->
+        <!-- end of header area -->
         <div class="header-backup">
         </div>
         <!-- middle Portion -->
@@ -21,25 +19,7 @@
             <div class="col-md-6 col-sm-6">
                 <embed style="height:300px; width:500px;" src="~/img/ptania2.swf">
             </div>
-            <div class="col-md-6 col-sm-6">
-                <table border="1">
-                    <tr>
-                        <th style="text-align:center; color: #ffff; background-color: #00B4CC ;"><h2>فہرست</h2></th></th>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center; background-color:#ffff;"><a href="#adddisease">بيماری کا اندراج</a></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center; background-color:#ffff;"><a href="#viewdisease">بيمارياں ملاحظہ کريں</a></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center; background-color:#ffff;"><a href="#deletedisease">بيماری کا اخراج</a></td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center; background-color:#ffff;"><a href="#updatedisease">بيماری کی درستگی</a></td>
-                    </tr>
-                </table>
-            </div>
+            
     </section>
     <!------------------- Add disease ------------------------>
     <section class="service text-center" id="adddisease">
@@ -48,7 +28,7 @@
             <div class="row">
                 <div class="team-heading text-center">
                     <div class="col-md-12 col-sm-6"></div>
-                    <h2>بيماری کی معلومات کااندراج</h2><br>
+                    <h2>علامات کی معلومات کااندراج</h2><br>
                 </div>
             </div>
             @using (Html.BeginForm())
@@ -69,7 +49,7 @@
                         </div>
 
                     </div>
-                    <div class="form-group">
+                    @*<div class="form-group">
                         <div class="col-md-4" style="float:right; color:#ffffff;">
                             @Html.LabelFor(Model => Model.Detail, new { style = "margin-right:-297px" })
                         </div>
@@ -78,11 +58,20 @@
                         </div>
 
                     </div>
+
+                    <div class="form-group">
+                        <div class="col-md-4" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(Model => Model.Reason, new { style = "margin-right:-300px" })
+                        </div>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(m => m.Reason, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
+                        </div>
+
+                    </div>*@
                     <div class="col-md-4"></div>
                     <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="مینو پر جائیں" type="submit"><br><br></div>
                     <div class="col-md-4"></div>
 
                 </div>
             }
-            </div>
-        
+        </div>

@@ -18,13 +18,14 @@
 
 
                 </div>
-                <div class="col-md-offset-0 col-lg-6 align:center" >
-                    <h2 style="text-align:left"> صارف کا نام </h2>
+                <div class="col-md-4 col-sm-6" style="align:center" >
                     <br />
                     <br />
-                    <img class="heart img-responsive" src="img/profile.png" alt="">
+                    <br />
+                    <img class="heart img-responsive" src="@Url.Content(Model.ImagePath )" alt="" width="180" height="220">
                 </div>
             </div>
+            <h3 style="text-align:center; color:#ffff;">@ViewBag.Name</h3>
             @*<h3 style="text-align:center; color:#ffff;">##-##-#### :تاريخ پيدائش</h3>*@
             <h3 style="text-align:center; color:#ffff;">@ViewBag.Country:ملک کا نام </h3>
             <h3 style="text-align:center; color:#ffff;">@ViewBag.Number :ٹيليفون نمبر</h3>

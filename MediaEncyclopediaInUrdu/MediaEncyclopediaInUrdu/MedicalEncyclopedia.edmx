@@ -58,7 +58,7 @@
           <Property Name="Address" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="TelephoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ImagePath" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Symptom">
           <Key>
@@ -255,7 +255,7 @@
           <Property Name="Address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Symptom">
           <Key>

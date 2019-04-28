@@ -70,4 +70,23 @@ namespace MediaEncyclopediaInUrdu.Models
         [Display(Name = ":پاسورڈ")]
         public string Password { get; set; }
     }
+
+    public class Password
+    {
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "ابھی والا پاسورڈ")]
+        public string OldPassword { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "نیا پاسورڈ")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "دوبارہ نیا پاسورڈ")]
+        [Compare("NewPassword", ErrorMessage = "دونوں پاسورڈ درست نہیں ہیں")]
+        public string ConfirmPassword { get; set; }
+    }
 }

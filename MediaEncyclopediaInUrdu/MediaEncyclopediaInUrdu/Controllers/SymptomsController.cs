@@ -84,6 +84,12 @@ namespace MediaEncyclopediaInUrdu.Controllers
                 return View();
             }
         }
+
+        public ActionResult FindDisease()
+        {
+
+            return View();
+        }
         public ActionResult Index()
         {
             return View();

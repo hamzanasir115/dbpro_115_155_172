@@ -22,7 +22,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
             disease.Detail = model.Detail;
             dbo.Diseases.Add(disease);
             dbo.SaveChanges();
-            return View();
+            return View(model);
         }
         public ActionResult ViewDisease()
         {

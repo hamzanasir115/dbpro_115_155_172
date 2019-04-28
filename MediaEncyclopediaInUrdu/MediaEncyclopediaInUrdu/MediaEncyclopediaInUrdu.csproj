@@ -395,6 +395,7 @@
     <Content Include="Views\Symptoms\UpdateSymptoms.cshtml" />
     <Content Include="Views\Symptoms\DeleteSymptoms.cshtml" />
     <Content Include="Views\Treatment\ViewTreatment.cshtml" />
+    <Content Include="Views\Symptoms\FindDisease.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />

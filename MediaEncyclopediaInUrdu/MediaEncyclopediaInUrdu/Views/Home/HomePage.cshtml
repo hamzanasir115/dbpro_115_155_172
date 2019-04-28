@@ -128,12 +128,7 @@
                         <tr>
                             <td style="text-align:center; background-color:#ffff;"><a href="#team">زمرہ دیکھیں</a></td>
                         </tr>
-                        <tr>
-                            <td style="text-align:center; background-color:#ffff;"><a href="#team1">بیماریاں دیکھیں </a></td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center; background-color:#ffff;"><a href="#team1">علاج دیکھیں </a></td>
-                        </tr>
+                        
                     </table>
                 </div>
             </div>
@@ -197,66 +192,27 @@
                     <h2>ہماری ٹيم</h2>
                     <h4>ہماری ويب سائٹ سے منسلک ڈاکٹر نہايت قابل اور رجسٹرڈ ہيں۔</h4>
                 </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person">
-                        <img class="img-responsive" src="~/img/member1.jpg" alt="member-1">
-                    </div>
-                    <div class="person-detail">
-                        <div class="arrow-bottom"></div>
-                        <h4 style="color:white;">ڈاکٹر اسما ئيل ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person-detail">
-                        <div class="arrow-top"></div>
-                        <h4 style="color:white;">ڈاکٹر ماہم ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                    <div class="person">
-                        <img class="img-responsive" src="~/img/member2.jpg" alt="member-2">
-                    </div>
-                </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person">
-                        <img class="img-responsive" src=~/"img/member3.jpg" alt="member-3">
-                    </div>
-                    <div class="person-detail">
-                        <div class="arrow-bottom"></div>
-                        <h4 style="color:white;">ڈاکٹر امير ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person-detail">
-                        <div class="arrow-top"></div>
-                        <h4 style="color:white;">ڈاکٹر بانو ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                    <div class="person">
-                        <img class="img-responsive" src="~/img/member4.jpg" alt="member-4">
-                    </div>
-                </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person">
-                        <img class="img-responsive" src="~/img/member5.jpg" alt="member-5">
-                    </div>
-                    <div class="person-detail">
-                        <div class="arrow-bottom"></div>
-                        <h4 style="color:white;">ڈاکٹر فاروق ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                </div>
-                <div class="col-md-2 single-member col-sm-4">
-                    <div class="person-detail">
-                        <div class="arrow-top"></div>
-                        <h4 style="color:white;">ڈاکٹر ماريہ ايم ڈی</h4>
-                        <p> </p>
-                    </div>
-                    <div class="person">
-                        <img class="img-responsive" src="~/img/member6.jpg" alt="member-5">
-                    </div>
-                </div>
+                
+                @if (ViewBag.Doctor != null)
+                {
+                    foreach (var item in ViewBag.Doctor)
+                    {
+                        <div class="col-md-2 single-member col-sm-4">
+                            <div class="person-detail">
+                                <div class="arrow-top"></div>
+                                <h4 style="color:white;">@item.Name </h4>
+                                <p> </p>
+                            </div>
+                            <div class="person">
+                                <img class="img-responsive" src="@Url.Content(@item.ImagePath )" alt="member-2">
+                            </div>
+                        </div>
+                    }
+                }
+                    
+                
+                
+               
             </div>
         </div>
     </section><!-- end of team section -->
@@ -267,10 +223,8 @@
                 <div class="contact-heading text-center">
                     <h2>ہم سے رابطہ</h2>
                 </div>
-                <br><ul><li><i class="fa fa-envelope"></i>info@doctor.com<span> :ای ميل</span> </li></ul>
-                <ul><li> ###-#######<span> :ٹيلیفون نمبر</span></li></ul>
-                <br><ul><li>abc@facebook.com<span> :فيس بک</span></li></ul>
-                <br><ul><li>abc@twitter.com <span> :ٹويٹر</span></li></ul>
+                <br><ul><li><i class="fa fa-envelope"></i>aqsazahid879@gmail.com<span> :ای ميل</span> </li></ul>
+                <ul><li> 0423-5123456<span> :ٹيلیفون نمبر</span></li></ul>
                 <br><ul><li><span>رسائی: </span>چوبيس گھنٹے آن لائن </li></ul>
                 <br>
             </div>

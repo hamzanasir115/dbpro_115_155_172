@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaEncyclopediaInUrdu.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,28 @@ namespace MediaEncyclopediaInUrdu.Controllers
 
         public ActionResult ChangePassword()
         {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(Password pass)
+        {
+            DB50Entities db = new DB50Entities();
+            foreach(var user in db.Accounts.ToList())
+            {
+                if(user.Email == Session["Email"].ToString())
+                {
+                    if(user.Password == pass.OldPassword)
+                    {
+                        if(pass.NewPassword == pass.ConfirmPassword)
+                        {
+                            db.Accounts.Find(user.Id).Password = pass.NewPassword;
+                            db.SaveChanges();
+                            return RedirectToAction("UserProfile", "Manage");
+                        }
+                    }
+                }
+            }
             return View();
         }
 
