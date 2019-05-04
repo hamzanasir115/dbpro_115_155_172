@@ -1,0 +1,57 @@
+CREATE PROCEDURE Report6
+AS
+BEGIN 
+SELECT * FROM Symptom
+JOIN Disease ON Symptom.SymptomID = Disease.SymptomID
+END
+GO
+
+CREATE PROCEDURE Report7
+AS
+BEGIN 
+SELECT * FROM Treatment
+JOIN Disease ON Treatment.DiseaseID = Disease.DiseaseID
+END
+GO
+
+CREATE PROCEDURE Report8
+AS
+BEGIN 
+SELECT * FROM Profile
+END
+GO
+
+
+CREATE PROCEDURE Report9
+AS
+BEGIN 
+SELECT Reason FROM Symptom
+JOIN Disease ON Symptom.SymptomID = Disease.SymptomID
+END
+GO
+
+CREATE PROCEDURE Report10
+AS
+BEGIN 
+SELECT Disease.Name, Symptom.SymptomName, Treatment.CategoryID, Treatment.TreatmentName FROM Disease
+JOIN Symptom ON Disease.SymptomID = Symptom.SymptomID
+JOIN Treatment ON Treatment.DiseaseID = Disease.DiseaseID
+END
+GO
+
+CREATE PROCEDURE Report4
+AS
+BEGIN 
+SELECT Email,Country,LicenseNumber FROM Profile
+WHERE Type = '?????'
+END
+GO
+
+
+CREATE PROCEDURE Report5
+AS
+BEGIN 
+SELECT * FROM Profile
+WHERE Type = '?????'
+END
+GO
