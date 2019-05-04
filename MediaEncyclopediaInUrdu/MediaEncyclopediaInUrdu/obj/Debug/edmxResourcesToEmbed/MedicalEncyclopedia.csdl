@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DB50Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="DB50Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Report1" ReturnType="Collection(DB50Model.Report1_Result)" />
+    <FunctionImport Name="Report2" ReturnType="Collection(DB50Model.Report2_Result)" />
+    <FunctionImport Name="Report3" ReturnType="Collection(DB50Model.Report3_Result)" />
     <EntitySet Name="Accounts" EntityType="DB50Model.Account" />
     <EntitySet Name="Categories" EntityType="DB50Model.Category" />
     <EntitySet Name="Diseases" EntityType="DB50Model.Disease" />
@@ -27,7 +30,31 @@
       <End Role="Disease" EntitySet="Diseases" />
       <End Role="Symptom" EntitySet="Symptoms" />
     </AssociationSet>
+    <FunctionImport Name="Report10" ReturnType="Collection(DB50Model.Report10_Result)" />
+    <FunctionImport Name="Report4" ReturnType="Collection(DB50Model.Report4_Result)" />
+    <FunctionImport Name="Report5" ReturnType="Collection(DB50Model.Report5_Result)" />
+    <FunctionImport Name="Report6" ReturnType="Collection(DB50Model.Report6_Result)" />
+    <FunctionImport Name="Report7" ReturnType="Collection(DB50Model.Report7_Result)" />
+    <FunctionImport Name="Report8" ReturnType="Collection(DB50Model.Report8_Result)" />
+    <FunctionImport Name="Report9" ReturnType="Collection(String)" />
   </EntityContainer>
+  <ComplexType Name="Report1_Result">
+    <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SymptomID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Report2_Result">
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Report3_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Password" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+  </ComplexType>
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="Id" />
@@ -141,4 +168,58 @@
     <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
     <End Type="DB50Model.Symptom" Role="Symptom" Multiplicity="*" />
   </Association>
+  <ComplexType Name="Report10_Result">
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Report4_Result">
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Report5_Result">
+    <Property Type="Int32" Name="ProfileID" Nullable="false" />
+    <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="Report6_Result">
+    <Property Type="Int32" Name="SymptomID" Nullable="false" />
+    <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SymptomID1" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Report7_Result">
+    <Property Type="Int32" Name="TreatmentID" Nullable="false" />
+    <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+    <Property Type="Int32" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="DiseaseID1" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="SymptomID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Report8_Result">
+    <Property Type="Int32" Name="ProfileID" Nullable="false" />
+    <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+    <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
+    <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
+  </ComplexType>
 </Schema>

@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -211,6 +214,18 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PasswordController.cs" />
     <Compile Include="Controllers\SymptomsController.cs" />
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Disease.cs">
       <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
     </Compile>
@@ -242,6 +257,33 @@
       <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report10_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report1_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report2_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report3_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report4_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report5_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report6_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report7_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report8_Result.cs">
+      <DependentUpon>MedicalEncyclopedia.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\TreatmentController.cs" />
     <Compile Include="Symptom.cs">
@@ -416,6 +458,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport2.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

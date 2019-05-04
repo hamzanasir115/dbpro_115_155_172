@@ -736,3 +736,19 @@ F:\UNI DATA\Semester 6\DBMS\Project\Aisha Disease Error\dbpro_115_155_172\MediaE
 F:\UNI DATA\Semester 6\DBMS\Project\Aisha Disease Error\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.csprojResolveAssemblyReference.cache
 F:\UNI DATA\Semester 6\DBMS\Project\Aisha Disease Error\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.dll
 F:\UNI DATA\Semester 6\DBMS\Project\Aisha Disease Error\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\obj\Debug\MediaEncyclopediaInUrdu.pdb
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.Shared.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\Engr\Desktop\New folder\dbpro_115_155_172\MediaEncyclopediaInUrdu\MediaEncyclopediaInUrdu\bin\stdole.dll

@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = "~/Views/Shared/BookLayout.cshtml";
 }
 <!DOCTYPE html>
@@ -8,7 +9,6 @@
 
     <!-- ====================================================
     header section -->
-    
     <!-- According to disease -->
     <section class="service text-center" id="disease">
         <div class="container">
@@ -16,7 +16,12 @@
             <div class="row">
                 <h2> بيماريوں کے مطابق کتاب </h2><br><br>
                 <h4>اس سيکشن کی مدد سے آپ بيماريوں کے فارميٹ ميں کتاب ڈاؤن لوڈ کرسکتے ہيں۔ کتاب ڈاؤن لوڈ کرنے کےليے نيچے موجود بٹن پر کلک کريں۔</h4>
-                <button style="background-color: #ffffff ; color: black;"><a href="#service">ڈاؤن لوڈ کتاب</a></button><br><br>
+                <p>
+                    @*<a class="btn btn-success" href="@Url.Action("GenerateReport1")">1 ڈاؤن لوڈ کتاب </a>*@
+                    <button style="background-color: #ffffff ; color: black;"><a href="GenerateReport1">ڈاؤن لوڈ کتاب1</a></button><br><br>
+                    <button style="background-color: #ffffff ; color: black;"><a href="GenerateReport2">ڈاؤن لوڈ کتاب2</a></button><br><br>
+                </p>
+                @*<button style="background-color: #ffffff ; color: black;"><a href="#service">ڈاؤن لوڈ کتاب</a></button><br><br>*@
                 <button style="background-color: #ffffff ; color: black;"><a href="#menu">مینو پر جائیں</a></button><br><br><br>
             </div>
         </div>
@@ -47,8 +52,6 @@
         </div>
     </section>
     <!--- footer --->
-    
-
     <!-- script tags
     ============================================================= -->
     <script src="~/js/jquery-2.1.1.js"></script>

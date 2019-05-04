@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,30 @@ namespace MediaEncyclopediaInUrdu.Controllers
         public ActionResult AddBook()
         {
             return View();
+        }
+
+        public ActionResult GenerateReport1()
+        {
+            DB50Entities db = new DB50Entities();
+            var c = db.Report1();
+
+            CrystalReport1 r = new CrystalReport1();
+            r.Load();
+            
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+
+        public ActionResult GenerateReport2()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report2();
+            CrystalReport2 r = new CrystalReport2();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
         }
 
         // GET: Book/Details/5
