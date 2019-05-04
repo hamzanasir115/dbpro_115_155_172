@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaEncyclopediaInUrdu.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -84,11 +85,37 @@ namespace MediaEncyclopediaInUrdu.Controllers
                 return View();
             }
         }
-
         public ActionResult FindDisease()
         {
-
             return View();
+        }
+        [HttpPost]
+        public ActionResult FindDisease(Symptoms model)
+        {
+            DB50Entities db = new DB50Entities();
+            List<string> DiseaseName = new List<string>();
+            List<Int32> Id = new List<int>();
+            foreach(var sym in db.Symptoms)
+            {
+                if(sym.Name == model.Name)
+                {
+                    Id.Add(sym.SymptomID);
+                }
+            }
+            foreach(int id in Id)
+            {
+                foreach(var i in db.Diseases)
+                {
+                    if(id == i.SymptomID)
+                    {
+                        DiseaseName.Add(i.Name);
+                    }
+                }
+            }
+
+            ViewBag.name = DiseaseName;
+            return View();
+
         }
         public ActionResult Index()
         {

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MediaEncyclopediaInUrdu.Models
 {
-    public class Disease
+    public class Diseases
     {
         [Required]
         [Display(Name = ":نام")]
@@ -15,6 +15,11 @@ namespace MediaEncyclopediaInUrdu.Models
         [Required]
         [Display(Name = ":تفصیل")]
         public string Detail { get; set; }
+
+        public int SymptomId { get; set; }
+
+        [Display(Name = "علامات کے نام")]
+        public string SymptomName { get; set; }
     }
     public class Symptoms
     {

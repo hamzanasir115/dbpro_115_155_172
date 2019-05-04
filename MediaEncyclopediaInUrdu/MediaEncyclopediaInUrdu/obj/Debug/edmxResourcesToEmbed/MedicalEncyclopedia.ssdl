@@ -24,6 +24,7 @@
     <Property Name="DiseaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Detail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SymptomID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DiseaseCategory">
     <Key>
@@ -74,6 +75,18 @@
     <Property Name="TreatmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Detail" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Disease_Symptom">
+    <End Role="Symptom" Type="Self.Symptom" Multiplicity="1" />
+    <End Role="Disease" Type="Self.Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symptom">
+        <PropertyRef Name="SymptomID" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="SymptomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DiseaseCategory_Category">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
     <End Role="DiseaseCategory" Type="Self.DiseaseCategory" Multiplicity="*" />
@@ -155,6 +168,10 @@
     <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Symptom" EntityType="Self.Symptom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Disease_Symptom" Association="Self.FK_Disease_Symptom">
+      <End Role="Symptom" EntitySet="Symptom" />
+      <End Role="Disease" EntitySet="Disease" />
+    </AssociationSet>
     <AssociationSet Name="FK_DiseaseCategory_Category" Association="Self.FK_DiseaseCategory_Category">
       <End Role="Category" EntitySet="Category" />
       <End Role="DiseaseCategory" EntitySet="DiseaseCategory" />

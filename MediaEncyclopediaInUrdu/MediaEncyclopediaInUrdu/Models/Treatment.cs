@@ -24,7 +24,7 @@ namespace MediaEncyclopediaInUrdu.Models
         [Display(Name = ":تفصیل")]
         public string Detail { get; set; }
 
-        public IEnumerable<Disease> DiseaseList { get; set; }
+        public IEnumerable<Diseases> DiseaseList { get; set; }
         public IEnumerable<Category> CategoryList { get; set; }
     }
 }

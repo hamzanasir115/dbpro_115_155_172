@@ -49,25 +49,26 @@
                         </div>
 
                     </div>
-                    @*<div class="form-group">
-                        <div class="col-md-4" style="float:right; color:#ffffff;">
-                            @Html.LabelFor(Model => Model.Detail, new { style = "margin-right:-297px" })
-                        </div>
-                        <div class="col-md-12">
-                            @Html.TextBoxFor(m => m.Detail, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                        </div>
+                    @if (ViewBag.name != null)
+                    {
+                        <div class="col-md-6 col-sm-6">
+                            <table border="1">
+                                @foreach (var item in ViewBag.name)
+                                {
 
-                    </div>
+                                    <tr>
+                                        <td style="text-align:center; background-color:#ffff;">
+                                            @item
+                                        </td>
+                                    </tr>
 
-                    <div class="form-group">
-                        <div class="col-md-4" style="float:right; color:#ffffff;">
-                            @Html.LabelFor(Model => Model.Reason, new { style = "margin-right:-300px" })
-                        </div>
-                        <div class="col-md-12">
-                            @Html.TextBoxFor(m => m.Reason, new { @class = "form-control", @style = "text-align:right; ", @placeholder = "نام کا اندراج کريں" })
-                        </div>
+                                }
+                            </table>
 
-                    </div>*@
+                        </div>
+                    }
+        
+
                     <div class="col-md-4"></div>
                     <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="مینو پر جائیں" type="submit"><br><br></div>
                     <div class="col-md-4"></div>

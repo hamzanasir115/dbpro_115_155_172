@@ -23,6 +23,7 @@
     <EntitySetMapping Name="Diseases">
       <EntityTypeMapping TypeName="DB50Model.Disease">
         <MappingFragment StoreEntitySet="Disease">
+          <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
           <ScalarProperty Name="Detail" ColumnName="Detail" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />

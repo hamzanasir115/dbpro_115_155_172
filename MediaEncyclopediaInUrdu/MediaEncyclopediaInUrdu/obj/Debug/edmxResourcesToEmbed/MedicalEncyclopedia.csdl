@@ -11,6 +11,10 @@
       <End Role="Category" EntitySet="Categories" />
       <End Role="Treatment" EntitySet="Treatments" />
     </AssociationSet>
+    <AssociationSet Name="FK_Disease_Symptom" Association="DB50Model.FK_Disease_Symptom">
+      <End Role="Symptom" EntitySet="Symptoms" />
+      <End Role="Disease" EntitySet="Diseases" />
+    </AssociationSet>
     <AssociationSet Name="FK_Treatment_Disease" Association="DB50Model.FK_Treatment_Disease">
       <End Role="Disease" EntitySet="Diseases" />
       <End Role="Treatment" EntitySet="Treatments" />
@@ -50,6 +54,8 @@
     <Property Name="DiseaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SymptomID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Symptom" Relationship="DB50Model.FK_Disease_Symptom" FromRole="Disease" ToRole="Symptom" />
     <NavigationProperty Name="Treatments" Relationship="DB50Model.FK_Treatment_Disease" FromRole="Disease" ToRole="Treatment" />
     <NavigationProperty Name="Categories" Relationship="DB50Model.DiseaseCategory" FromRole="Disease" ToRole="Category" />
     <NavigationProperty Name="Symptoms" Relationship="DB50Model.DiseaseSymptom" FromRole="Disease" ToRole="Symptom" />
@@ -76,7 +82,8 @@
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Detail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Diseases" Relationship="DB50Model.DiseaseSymptom" FromRole="Symptom" ToRole="Disease" />
+    <NavigationProperty Name="Diseases" Relationship="DB50Model.FK_Disease_Symptom" FromRole="Symptom" ToRole="Disease" />
+    <NavigationProperty Name="Diseases1" Relationship="DB50Model.DiseaseSymptom" FromRole="Symptom" ToRole="Disease" />
   </EntityType>
   <EntityType Name="Treatment">
     <Key>
@@ -99,6 +106,18 @@
       </Principal>
       <Dependent Role="Treatment">
         <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disease_Symptom">
+    <End Type="DB50Model.Symptom" Role="Symptom" Multiplicity="1" />
+    <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symptom">
+        <PropertyRef Name="SymptomID" />
+      </Principal>
+      <Dependent Role="Disease">
+        <PropertyRef Name="SymptomID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

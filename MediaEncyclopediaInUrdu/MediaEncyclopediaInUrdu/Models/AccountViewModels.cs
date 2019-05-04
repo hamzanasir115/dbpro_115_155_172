@@ -106,7 +106,7 @@ namespace MediaEncyclopediaInUrdu.Models
     {
         [Required]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "ای میل")]
         public string Email { get; set; }
     }
 }

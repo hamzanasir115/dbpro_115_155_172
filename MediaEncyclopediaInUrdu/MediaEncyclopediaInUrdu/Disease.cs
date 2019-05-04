@@ -25,7 +25,9 @@ namespace MediaEncyclopediaInUrdu
         public int DiseaseID { get; set; }
         public string Name { get; set; }
         public string Detail { get; set; }
+        public int SymptomID { get; set; }
     
+        public virtual Symptom Symptom { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Treatment> Treatments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

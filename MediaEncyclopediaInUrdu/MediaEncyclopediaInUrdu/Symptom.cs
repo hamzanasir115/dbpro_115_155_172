@@ -18,6 +18,7 @@ namespace MediaEncyclopediaInUrdu
         public Symptom()
         {
             this.Diseases = new HashSet<Disease>();
+            this.Diseases1 = new HashSet<Disease>();
         }
     
         public int SymptomID { get; set; }
@@ -27,5 +28,7 @@ namespace MediaEncyclopediaInUrdu
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Disease> Diseases { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Disease> Diseases1 { get; set; }
     }
 }

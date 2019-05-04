@@ -63,7 +63,6 @@ namespace MediaEncyclopediaInUrdu.Models
         [EmailAddress]
         [Display(Name = ":نام")]
         public string Name { get; set; }
-
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -88,5 +87,25 @@ namespace MediaEncyclopediaInUrdu.Models
         [Display(Name = "دوبارہ نیا پاسورڈ")]
         [Compare("NewPassword", ErrorMessage = "دونوں پاسورڈ درست نہیں ہیں")]
         public string ConfirmPassword { get; set; }
+    }
+
+    public class CreatePassword
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "ای میل")]
+        public string Email { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        [Display(Name = "نیا پاسورڈ")]
+        public string NewPassword { get; set; }
+
+        [DataType(DataType.Password)]
+        [Display(Name = "دوبارہ نیا پاسورڈ")]
+        [Compare("NewPassword", ErrorMessage = "دونوں پاسورڈ درست نہیں ہیں")]
+        public string ConfirmPassword { get; set; }
+
     }
 }

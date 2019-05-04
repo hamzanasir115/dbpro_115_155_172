@@ -3,10 +3,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Net.Mail;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MediaEncyclopediaInUrdu.Models;
+using System.Net;
+using System.Text;
 
 namespace MediaEncyclopediaInUrdu.Controllers
 {
@@ -159,6 +162,86 @@ namespace MediaEncyclopediaInUrdu.Controllers
             return View();
         }
 
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            bool isValidEmail = false;
+            DB50Entities db = new DB50Entities();
+            foreach (var asp in db.Accounts)
+            {
+                if (asp.Email == model.Email)
+                {
+                    isValidEmail = true;
+                    break;
+                }
+            }
+            if (isValidEmail == true)
+            {
+                string body;
+                body = "Click on the link below to Reset Password \n http://localhost:1192/Manage/CreatePassword";
+                SendEmail(model.Email, "Forget Password", body);
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
+
+        public bool SendEmail(string ToEmail, string subject, string emailBody)
+        {
+            try
+            {
+                string senderEmail = System.Configuration.ConfigurationManager.AppSettings["SenderEmail"].ToString();
+                string senderPassword = System.Configuration.ConfigurationManager.AppSettings["SenderPassword"].ToString();
+
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.Timeout = 100000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new NetworkCredential(senderEmail, senderPassword);
+                MailMessage mailMessage = new MailMessage(senderEmail, ToEmail, subject, emailBody);
+                mailMessage.IsBodyHtml = true;
+                mailMessage.BodyEncoding = UTF8Encoding.UTF8;
+                client.Send(mailMessage);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public ActionResult CreatePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreatePassword(CreatePassword model)
+        {
+            DB50Entities db = new DB50Entities();
+            foreach (var person in db.Accounts.ToList())
+            {
+                if (person.Email == model.Email)
+                {
+                    if (model.NewPassword == model.ConfirmPassword)
+                    {
+                        person.Password = model.NewPassword;
+                        db.Accounts.Find(person.Id).Password = person.Password;
+                        db.SaveChanges();
+                        return RedirectToAction("Login", "Account");
+                        
+                    }
+                }
+
+            }
+
+            return View();
+        }
         //
         // GET: /Manage/AddPhoneNumber
         public ActionResult AddPhoneNumber()
