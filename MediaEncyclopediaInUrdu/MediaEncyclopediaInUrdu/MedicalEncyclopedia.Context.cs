@@ -12,6 +12,8 @@ namespace MediaEncyclopediaInUrdu
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DB50Entities : DbContext
     {
@@ -31,5 +33,65 @@ namespace MediaEncyclopediaInUrdu
         public virtual DbSet<Profile> Profiles { get; set; }
         public virtual DbSet<Symptom> Symptoms { get; set; }
         public virtual DbSet<Treatment> Treatments { get; set; }
+    
+        public virtual ObjectResult<Report1_Result> Report1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report1_Result>("Report1");
+        }
+    
+        public virtual ObjectResult<Report2_Result> Report2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report2_Result>("Report2");
+        }
+    
+        public virtual ObjectResult<Report3_Result> Report3()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report3_Result>("Report3");
+        }
+    
+        public virtual ObjectResult<Report10_Result> Report10()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report10_Result>("Report10");
+        }
+    
+        public virtual ObjectResult<Report4_Result> Report4()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report4_Result>("Report4");
+        }
+    
+        public virtual ObjectResult<Report5_Result> Report5()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report5_Result>("Report5");
+        }
+    
+        public virtual ObjectResult<Report6_Result> Report6()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report6_Result>("Report6");
+        }
+    
+        public virtual ObjectResult<Report7_Result> Report7()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report7_Result>("Report7");
+        }
+    
+        public virtual ObjectResult<Report8_Result> Report8()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report8_Result>("Report8");
+        }
+    
+        public virtual ObjectResult<string> Report9()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("Report9");
+        }
+    
+        public virtual ObjectResult<Report11_Result> Report11()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report11_Result>("Report11");
+        }
+    
+        public virtual ObjectResult<Report12_Result> Report12()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Report12_Result>("Report12");
+        }
     }
 }

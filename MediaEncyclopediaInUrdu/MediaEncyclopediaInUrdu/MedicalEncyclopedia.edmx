@@ -166,6 +166,8 @@
         </Association>
         <Function Name="Report1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Report10" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Report11" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Report12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Report2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Report3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="Report4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -220,6 +222,13 @@
           <FunctionImport Name="Report1" ReturnType="Collection(DB50Model.Report1_Result)" />
           <FunctionImport Name="Report2" ReturnType="Collection(DB50Model.Report2_Result)" />
           <FunctionImport Name="Report3" ReturnType="Collection(DB50Model.Report3_Result)" />
+          <FunctionImport Name="Report10" ReturnType="Collection(DB50Model.Report10_Result)" />
+          <FunctionImport Name="Report4" ReturnType="Collection(DB50Model.Report4_Result)" />
+          <FunctionImport Name="Report5" ReturnType="Collection(DB50Model.Report5_Result)" />
+          <FunctionImport Name="Report6" ReturnType="Collection(DB50Model.Report6_Result)" />
+          <FunctionImport Name="Report7" ReturnType="Collection(DB50Model.Report7_Result)" />
+          <FunctionImport Name="Report8" ReturnType="Collection(DB50Model.Report8_Result)" />
+          <FunctionImport Name="Report9" ReturnType="Collection(String)" />
           <EntitySet Name="Accounts" EntityType="DB50Model.Account" />
           <EntitySet Name="Categories" EntityType="DB50Model.Category" />
           <EntitySet Name="Diseases" EntityType="DB50Model.Disease" />
@@ -246,13 +255,8 @@
             <End Role="Disease" EntitySet="Diseases" />
             <End Role="Symptom" EntitySet="Symptoms" />
           </AssociationSet>
-          <FunctionImport Name="Report10" ReturnType="Collection(DB50Model.Report10_Result)" />
-          <FunctionImport Name="Report4" ReturnType="Collection(DB50Model.Report4_Result)" />
-          <FunctionImport Name="Report5" ReturnType="Collection(DB50Model.Report5_Result)" />
-          <FunctionImport Name="Report6" ReturnType="Collection(DB50Model.Report6_Result)" />
-          <FunctionImport Name="Report7" ReturnType="Collection(DB50Model.Report7_Result)" />
-          <FunctionImport Name="Report8" ReturnType="Collection(DB50Model.Report8_Result)" />
-          <FunctionImport Name="Report9" ReturnType="Collection(String)" />
+          <FunctionImport Name="Report11" ReturnType="Collection(DB50Model.Report11_Result)" />
+          <FunctionImport Name="Report12" ReturnType="Collection(DB50Model.Report12_Result)" />
         </EntityContainer>
         <ComplexType Name="Report1_Result">
           <Property Type="Int32" Name="DiseaseID" Nullable="false" />
@@ -270,6 +274,60 @@
           <Property Type="String" Name="Password" Nullable="false" />
           <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" />
           <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Report10_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Report4_Result">
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Report5_Result">
+          <Property Type="Int32" Name="ProfileID" Nullable="false" />
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="Report6_Result">
+          <Property Type="Int32" Name="SymptomID" Nullable="false" />
+          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="SymptomID1" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Report7_Result">
+          <Property Type="Int32" Name="TreatmentID" Nullable="false" />
+          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
+          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+          <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="DiseaseID1" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="SymptomID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Report8_Result">
+          <Property Type="Int32" Name="ProfileID" Nullable="false" />
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
         </ComplexType>
         <EntityType Name="Account">
           <Key>
@@ -384,59 +442,16 @@
           <End Type="DB50Model.Disease" Role="Disease" Multiplicity="*" />
           <End Type="DB50Model.Symptom" Role="Symptom" Multiplicity="*" />
         </Association>
-        <ComplexType Name="Report10_Result">
+        <ComplexType Name="Report11_Result">
+          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="CategoryID" Nullable="false" />
-          <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Report4_Result">
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
-          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="Report5_Result">
-          <Property Type="Int32" Name="ProfileID" Nullable="false" />
-          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
-          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
-          <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
-        </ComplexType>
-        <ComplexType Name="Report6_Result">
-          <Property Type="Int32" Name="SymptomID" Nullable="false" />
-          <Property Type="String" Name="SymptomName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Reason" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="SymptomID1" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="Report7_Result">
-          <Property Type="Int32" Name="TreatmentID" Nullable="false" />
-          <Property Type="Int32" Name="DiseaseID" Nullable="false" />
-          <Property Type="Int32" Name="CategoryID" Nullable="false" />
+        <ComplexType Name="Report12_Result">
           <Property Type="String" Name="TreatmentName" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Detail" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="DiseaseID1" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Detail1" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="SymptomID" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="Report8_Result">
-          <Property Type="Int32" Name="ProfileID" Nullable="false" />
-          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" />
-          <Property Type="String" Name="LicenseNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
-          <Property Type="String" Name="TelephoneNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Type" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="250" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -473,6 +488,85 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report10" FunctionName="DB50Model.Store.Report10">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report10_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report4" FunctionName="DB50Model.Store.Report4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report4_Result">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report5" FunctionName="DB50Model.Store.Report5">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report5_Result">
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report6" FunctionName="DB50Model.Store.Report6">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report6_Result">
+                <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Detail1" ColumnName="Detail1" />
+                <ScalarProperty Name="SymptomID1" ColumnName="SymptomID1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report7" FunctionName="DB50Model.Store.Report7">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report7_Result">
+                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
+                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="DiseaseID1" ColumnName="DiseaseID1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Detail1" ColumnName="Detail1" />
+                <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report8" FunctionName="DB50Model.Store.Report8">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB50Model.Report8_Result">
+                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Report9" FunctionName="DB50Model.Store.Report9" />
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="DB50Model.Account">
               <MappingFragment StoreEntitySet="Account">
@@ -554,85 +648,25 @@
               <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="Report10" FunctionName="DB50Model.Store.Report10">
+          <FunctionImportMapping FunctionImportName="Report11" FunctionName="DB50Model.Store.Report11">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report10_Result">
+              <ComplexTypeMapping TypeName="DB50Model.Report11_Result">
+                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report4" FunctionName="DB50Model.Store.Report4">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report4_Result">
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report5" FunctionName="DB50Model.Store.Report5">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report5_Result">
-                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report6" FunctionName="DB50Model.Store.Report6">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report6_Result">
-                <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
-                <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
                 <ScalarProperty Name="Reason" ColumnName="Reason" />
-                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Detail1" ColumnName="Detail1" />
-                <ScalarProperty Name="SymptomID1" ColumnName="SymptomID1" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report7" FunctionName="DB50Model.Store.Report7">
+          <FunctionImportMapping FunctionImportName="Report12" FunctionName="DB50Model.Store.Report12">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report7_Result">
-                <ScalarProperty Name="TreatmentID" ColumnName="TreatmentID" />
-                <ScalarProperty Name="DiseaseID" ColumnName="DiseaseID" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              <ComplexTypeMapping TypeName="DB50Model.Report12_Result">
                 <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="DiseaseID1" ColumnName="DiseaseID1" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Detail1" ColumnName="Detail1" />
-                <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report8" FunctionName="DB50Model.Store.Report8">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB50Model.Report8_Result">
-                <ScalarProperty Name="ProfileID" ColumnName="ProfileID" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LicenseNumber" ColumnName="LicenseNumber" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Report9" FunctionName="DB50Model.Store.Report9" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

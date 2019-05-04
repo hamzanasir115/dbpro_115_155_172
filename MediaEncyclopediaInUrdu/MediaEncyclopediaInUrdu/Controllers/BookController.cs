@@ -44,6 +44,98 @@ namespace MediaEncyclopediaInUrdu.Controllers
             return File(s, "application/pdf");
         }
 
+        public ActionResult GenerateReport3()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report3();
+            CrystalReport3 r = new CrystalReport3();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+
+        public ActionResult GenerateReport4()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report4();
+            CrystalReport4 r = new CrystalReport4();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+
+        public ActionResult GenerateReport5()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report5();
+            CrystalReport5 r = new CrystalReport5();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+        public ActionResult GenerateReport6()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report11();
+            CrystalReport11 r = new CrystalReport11();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+        public ActionResult GenerateReport7()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report12();
+            CrystalReport12 r = new CrystalReport12();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+
+        public ActionResult GenerateReport8()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report8();
+            CrystalReport8 r = new CrystalReport8();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+
+        public ActionResult GenerateReport9()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report9();
+            CrystalReport9 r = new CrystalReport9();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
+        public ActionResult GenerateReport10()
+        {
+            DB50Entities db = new DB50Entities();
+
+            var c = db.Report10();
+            CrystalReport10 r = new CrystalReport10();
+            r.Load();
+
+            Stream s = r.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+            return File(s, "application/pdf");
+        }
         // GET: Book/Details/5
         public ActionResult Details(int id)
         {
