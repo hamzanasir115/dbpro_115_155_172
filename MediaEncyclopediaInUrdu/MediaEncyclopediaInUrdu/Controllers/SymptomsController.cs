@@ -19,7 +19,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
         {
             DB50Entities dbo = new DB50Entities();
             Symptom symptom = new Symptom();
-            symptom.Name = model.Name;
+            symptom.SymptomName = model.SymptomName;
             symptom.Detail = model.Detail;
             symptom.Reason = model.Reason;
             dbo.Symptoms.Add(symptom);
@@ -48,7 +48,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
             {
                 using (DB50Entities db = new DB50Entities())
                 {
-                    db.Symptoms.Find(id).Name = obj.Name;
+                    db.Symptoms.Find(id).SymptomName = obj.SymptomName;
                     db.Symptoms.Find(id).Detail = obj.Detail;
                     db.Symptoms.Find(id).Reason = obj.Reason;
                     db.SaveChanges();
@@ -97,7 +97,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
             List<Int32> Id = new List<int>();
             foreach(var sym in db.Symptoms)
             {
-                if(sym.Name == model.Name)
+                if(sym.SymptomName == model.SymptomName)
                 {
                     Id.Add(sym.SymptomID);
                 }

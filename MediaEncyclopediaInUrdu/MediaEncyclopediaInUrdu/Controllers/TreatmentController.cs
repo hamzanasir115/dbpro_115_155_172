@@ -67,6 +67,60 @@ namespace MediaEncyclopediaInUrdu.Views
             DB50Entities db = new DB50Entities();
             return View(db.Treatments);
         }
+
+        public ActionResult UpdateTreatment(int id)
+        {
+            ViewBag.Title = " درستگی ";
+            using (DB50Entities db = new DB50Entities())
+            {
+                return View(db.Treatments.Where(x => x.TreatmentID == id).Single());
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UpdateTreatment(Treatment model, int id)
+        {
+            try
+            {
+                using (DB50Entities db = new DB50Entities())
+                {
+                    db.Treatments.Find(id).TreatmentName = model.TreatmentName;
+                    db.Treatments.Find(id).Detail = model.Detail;
+                    db.SaveChanges();
+                }
+                return View("~/Views/Disease/AddDisease.cshtml");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult DeleteTreatment(int id)
+        {
+            ViewBag.Title = "اخراج";
+            DB50Entities db = new DB50Entities();
+            Treatment t = db.Treatments.Find(id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteTreatment(int id, Treatment model)
+        {
+            try
+            {
+                DB50Entities db = new DB50Entities();
+                var ToDelete = db.Treatments.Single(x => x.TreatmentID == id);
+                db.Treatments.Remove(ToDelete);
+                db.SaveChanges();
+                return View("~/Views/Disease/AddDisease.cshtml");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         // GET: Treatment/Details/5
         public ActionResult Details(int id)
         {

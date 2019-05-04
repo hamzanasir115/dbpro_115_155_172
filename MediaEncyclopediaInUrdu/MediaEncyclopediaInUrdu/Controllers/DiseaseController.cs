@@ -11,28 +11,30 @@ namespace MediaEncyclopediaInUrdu.Controllers
     {
         public ActionResult AddDisease()
         {
+            
             DB50Entities db = new DB50Entities();
-            List<string> SymptomName = new List<string>();
-            List<int> Ids = new List<int>();
+            List<string> SympName = new List<string>();
+            List<int> SIds = new List<int>();
             foreach(Symptom d in db.Symptoms)
             {
                 if (d.SymptomID != null)
                 {
-                    Ids.Add(d.SymptomID);
-                    SymptomName.Add(d.Name);
+                    SIds.Add(d.SymptomID);
+                    SympName.Add(d.SymptomName);
 
                 }
             }
-            ViewBag.DName = SymptomName;
-            ViewBag.Id = Ids;
+            ViewBag.SName = SympName;
+            ViewBag.SIds = SIds;
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddDisease(Diseases model)
+        public ActionResult AddDisease(Diseases model, int SymptomName)
         {
             DB50Entities dbo = new DB50Entities();
             Disease disease = new Disease();
+            disease.SymptomID = SymptomName;
             disease.Name = model.Name;
             disease.Detail = model.Detail;
             
@@ -47,7 +49,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
             }
             foreach(var sym in dbo.Symptoms)
             {
-                if(sym.Name == model.SymptomName)
+                if(sym.SymptomName == model.SymptomName)
                 {
                     SymptomId = sym.SymptomID;
                 }

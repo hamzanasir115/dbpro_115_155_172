@@ -61,7 +61,7 @@
       <PropertyRef Name="SymptomID" />
     </Key>
     <Property Name="SymptomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SymptomName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Detail" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Reason" Type="nvarchar" MaxLength="50" />
   </EntityType>

@@ -50,7 +50,7 @@
         <MappingFragment StoreEntitySet="Symptom">
           <ScalarProperty Name="Reason" ColumnName="Reason" />
           <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SymptomName" ColumnName="SymptomName" />
           <ScalarProperty Name="SymptomID" ColumnName="SymptomID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -16,8 +16,10 @@ namespace MediaEncyclopediaInUrdu.Models
         [Display(Name = ":تفصیل")]
         public string Detail { get; set; }
 
+        [Required]
+        [Display(Name = ":علامات کی آئ ڈی سے متعلقہ نام")]
         public int SymptomId { get; set; }
-
+        
         [Display(Name = "علامات کے نام")]
         public string SymptomName { get; set; }
     }
@@ -25,7 +27,7 @@ namespace MediaEncyclopediaInUrdu.Models
     {
         [Required]
         [Display(Name = ":نام")]
-        public string Name { get; set; }
+        public string SymptomName { get; set; }
 
         [Required]
         [Display(Name = ":تفصیل")]

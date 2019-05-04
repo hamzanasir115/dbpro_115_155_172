@@ -1,0 +1,73 @@
+﻿@model MediaEncyclopediaInUrdu.Treatment
+
+@{
+    Layout = "~/Views/Shared/TreatmentLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body style="background-color:#ffffff">
+
+    <!-- By Entering disease -->
+    <section class="service text-center" id="disease">
+        <div class="container">
+            <div class="header-backup"></div>
+            <div class="row">
+                <div class="team-heading text-center">
+                    <div class="col-md-12 col-sm-6"></div>
+                    <br><br><h2 class="col-md-8">@ViewBag.Title</h2><br><br>
+                </div>
+            </div>
+            @using (Html.BeginForm("UpdateTreatment", "Treatment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <div class="col-md-6" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.TreatmentName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TreatmentName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TreatmentName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"><input style="background-color:#00B4CC ; color: #ffff; font-size:30px" value="درستگی" type="submit"><br><br></div>
+                    <div class="col-md-4"></div>
+                </div>
+                <br />
+                <br />
+            }
+
+        </div>
+    </section>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+

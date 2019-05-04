@@ -400,6 +400,8 @@
     <Content Include="Views\Symptoms\FindDisease.cshtml" />
     <Content Include="Views\Manage\ForgotPassword.cshtml" />
     <Content Include="Views\Manage\CreatePassword.cshtml" />
+    <Content Include="Views\Treatment\UpdateTreatment.cshtml" />
+    <Content Include="Views\Treatment\DeleteTreatment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="fonts\App_Data\" />

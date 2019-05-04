@@ -22,7 +22,7 @@ namespace MediaEncyclopediaInUrdu
         }
     
         public int SymptomID { get; set; }
-        public string Name { get; set; }
+        public string SymptomName { get; set; }
         public string Detail { get; set; }
         public string Reason { get; set; }
     

@@ -60,6 +60,30 @@
 
                     @Html.ValidationSummary("", new { @class = "text-danger" })
 
+                    
+
+                    
+                    <div class="form-group">
+                        <div class="col-md-8" style="float:right; color:#ffffff;">
+                            @Html.LabelFor(model => model.SymptomId, htmlAttributes: new { @class = "control-label col-md-2"})
+                        </div>
+                        <div class="col-md-10">
+                            @{
+                                var id = Request.Url.Segments[1];
+                                int i = 0;
+                            }
+                            <select name="SymptomName" id="cmb" size="1" style="width:1000px; font-size:large; float:right">
+                                @foreach (var name in ViewBag.SName)
+                                {
+                                    <option value="@ViewBag.SIds[i]">@name</option>
+                                    i++;
+                                }
+
+                            </select>
+                            @Html.ValidationMessageFor(model => model.SymptomId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-4" style="float:right; color:#ffffff;">
                             @Html.LabelFor(Model => Model.Name, new { style = "margin-right:-310px" })
