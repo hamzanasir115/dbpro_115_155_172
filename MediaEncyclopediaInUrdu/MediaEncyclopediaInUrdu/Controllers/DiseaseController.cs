@@ -38,28 +38,25 @@ namespace MediaEncyclopediaInUrdu.Controllers
             disease.Name = model.Name;
             disease.Detail = model.Detail;
             
-            int DiseaseId, SymptomId = 0;
-            foreach(var dis in dbo.Diseases)
-            {
-                if(dis.Name == model.Name && dis.Detail == model.Detail)
-                {
-                    DiseaseId = dis.DiseaseID;
-                    break;
-                }
-            }
-            foreach(var sym in dbo.Symptoms)
-            {
-                if(sym.SymptomName == model.SymptomName)
-                {
-                    SymptomId = sym.SymptomID;
-                }
-            }
-            disease.SymptomID = SymptomId;
             dbo.Diseases.Add(disease);
 
             dbo.SaveChanges();
+            DB50Entities db = new DB50Entities();
+            List<string> SympName = new List<string>();
+            List<int> SIds = new List<int>();
+            foreach (Symptom d in db.Symptoms)
+            {
+                if (d.SymptomID != null)
+                {
+                    SIds.Add(d.SymptomID);
+                    SympName.Add(d.SymptomName);
 
-            return View(model);
+                }
+            }
+            ViewBag.SName = SympName;
+            ViewBag.SIds = SIds;
+
+            return View("AddDisease");
         }
         public ActionResult ViewDisease()
         {

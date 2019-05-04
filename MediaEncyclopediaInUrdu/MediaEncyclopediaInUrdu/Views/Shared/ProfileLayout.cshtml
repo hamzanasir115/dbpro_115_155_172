@@ -32,19 +32,48 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid nav-bar">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav navbar-left">
-                                <li> @Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>
-                                <li> @Html.ActionLink("پاسورڑ تبدیل کریں", "ChangePassword", "Password") </li>
-                                <li> @Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
-                                <li> @Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
-                                
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
-                                <li>@Html.ActionLink("صفحۂ اول", "UserProfile", "Manage")</li>
-                                <li> <a href="#"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
-                            </ul>
+                            @{
+                                        string type = Session["Type"].ToString();
+                                        if (type == "ڈاکٹر")
+                                        {
+                                    <ul class="nav navbar-nav navbar-left">
+                                        <li>@Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>
+                                        <!-- <li>@Html.ActionLink("ترتیب زمزمہ", "", "")</li>  -->
+                                        <li>@Html.ActionLink("ترتیب بيمارياں", "AddDisease", "Disease")</li>
+                                        <li>@Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
+                                        <li>@Html.ActionLink("علاج", "AddTreatment", "Treatment")</li>
+                                        <li>@Html.ActionLink("علامات", "AddSymptoms", "Symptoms")</li>
+                                        <!-- <li><a class="menu" href="Signout">باہر جائیں</a></li>
+                                            <li><a class="menu" href="AddCategory.html">ترتیب زمزمہ</a></li>
+                                            <li><a class="menu active" href="AddDisease.html">ترتیب بيمارياں</a></li>
+                                            <li><a class="menu" href="Book.html">کتاب حاصل</a></li>
+                                            <li><a class="menu" href="Treatment.html">علاج</a></li> -->
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+                                        <li>@Html.ActionLink("صفحۂ اول", "UserProfile", "Manage")</li>
 
+                                        <li> <a href="#"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
+                                    </ul>
+                                }
+                                else if (type == "مریض")
+                                {
+                                    <ul class="nav navbar-nav navbar-left">
+                                        <li> @Html.ActionLink("باہر جائیں", "HomePage", "Home")</li>
+                                        <li> @Html.ActionLink("پاسورڑ تبدیل کریں", "ChangePassword", "Password") </li>
+                                        <li> @Html.ActionLink("کتاب حاصل", "AddBook", "Book")</li>
+                                        <li> @Html.ActionLink("علاج", "FindDisease", "Symptoms")</li>
+
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li>@Html.ActionLink("میری پروفائل", "UserProfile", "Manage")</li>
+                                        <li>@Html.ActionLink("صفحۂ اول", "UserProfile", "Manage")</li>
+                                        <li> <a href="#"><img src="~/img/logo.png" alt="" class="img-responsive logo"></a></li>
+                                    </ul>
+
+                                }
+                            }
+                    
                         </div><!-- /navbar-collapse -->
                     </div><!-- / .container-fluid -->
                 </nav>

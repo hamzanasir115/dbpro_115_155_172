@@ -104,9 +104,12 @@ namespace MediaEncyclopediaInUrdu.Controllers
 
         public ActionResult UserProfile()
         {
+            string Type;
             string email = Session["Email"].ToString();
-            ViewBag.Email = email;
             DB50Entities db = new DB50Entities();
+            
+            ViewBag.Email = email;
+            
             Register account = new Register();
 
             foreach (var user in db.Accounts)

@@ -82,6 +82,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
                         Name = per.UserName;
                         Password = per.Password;
                         Session["Email"] = per.Email;
+                        Session["Type"] = per.Type;
                         return RedirectToAction("UserProfile", "Manage");
 
                     }
@@ -90,6 +91,7 @@ namespace MediaEncyclopediaInUrdu.Controllers
                         Name = per.UserName;
                         Password = per.Password;
                         Session["Email"] = per.Email;
+                        Session["Type"] = per.Type;
                         return RedirectToAction("AddDisease", "Disease");
                     }
 
